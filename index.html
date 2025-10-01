@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBRATECH AUTOMATION - Advanced Electrical Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .sidebar-transition {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-fade {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stat-counter {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(30, 64, 175, 0.85) 100%);
+        }
+        
+        .icon-card-bg {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+        
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .project-card:hover {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        }
+        
+        .icon-bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white shadow-2xl z-50 sidebar-transition -translate-x-full">
+        <div class="p-6 border-b border-gray-100">
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=338,fit=crop,q=95/YNqBKEX0RNC2Oj9o/design-sans-titre-AVLagnyvzWU3BEDY.png" alt="IBRATECH" class="h-12 object-contain">
+            <p class="text-sm text-gray-500 mt-2">Automation Solutions</p>
+        </div>
+        
+        <nav class="p-4">
+            <a href="#home" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-home w-5"></i>
+                <span class="ml-3">Home</span>
+            </a>
+            <a href="#about" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-info-circle w-5"></i>
+                <span class="ml-3">About</span>
+            </a>
+            <a href="#services" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-cogs w-5"></i>
+                <span class="ml-3">Services</span>
+            </a>
+            <a href="#projects" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-project-diagram w-5"></i>
+                <span class="ml-3">Projects</span>
+            </a>
+            <a href="#stats" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-chart-line w-5"></i>
+                <span class="ml-3">Statistics</span>
+            </a>
+            <a href="#testimonials" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-star w-5"></i>
+                <span class="ml-3">Testimonials</span>
+            </a>
+            <a href="#contact" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-envelope w-5"></i>
+                <span class="ml-3">Contact</span>
+            </a>
+        </nav>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100">
+            <div class="flex space-x-3 justify-center">
+                <a href="#" class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay for mobile -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleSidebar()"></div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="min-h-screen transition-all duration-300">
+        <!-- Top Bar -->
+        <div class="bg-white shadow-sm sticky top-0 z-30">
+            <div class="px-6 py-4 flex items-center justify-between">
+                <button onclick="toggleSidebar()" class="text-gray-700 hover:text-blue-600 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                
+                <div class="flex items-center space-x-4 ml-auto">
+                    <span class="text-sm text-gray-600 hidden md:block">
+                        <i class="fas fa-phone-alt text-blue-600 mr-2"></i>
+                        Contact: <a href="mailto:contact@ibratech-automation.com" class="text-blue-600 hover:underline">contact@ibratech-automation.com</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="home" class="relative overflow-hidden gradient-bg text-white py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="section-fade">
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            Advanced Electrical Automation Solutions
+                        </h1>
+                        <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                            Innovative technologies for Industrial, Electrical Automation, Web Development, Design, Marketing, Writing, Consulting, and IT support.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Reliable</span>
+                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Efficient</span>
+                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Innovative</span>
+                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Expert</span>
+                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Trusted</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#services" class="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
+                                Our Services
+                            </a>
+                            <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20">
+                            <div class="text-yellow-400 mb-4 text-3xl">
+                                ★★★★★
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Quality Assurance</h3>
+                            <p class="text-blue-100">
+                                Trusted by 150+ clients worldwide with 15+ years of expertise in automation solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-6 bg-white section-fade">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+                        Innovative Electrical Automation Solutions
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        At Ibratech Automation, we specialize in electrical automation and providing consulting - supervision of electrical related projects to ensure they meet industrial standards.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="py-16 px-6 bg-gradient-to-r from-blue-600 to-blue-800">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 text-center text-white">
+                    <div class="section-fade">
+                        <div class="stat-counter">150+</div>
+                        <p class="text-xl font-semibold mt-2">Trusted Clients</p>
+                        <p class="text-blue-100 mt-2">Worldwide partnerships</p>
+                    </div>
+                    <div class="section-fade">
+                        <div class="stat-counter">15+</div>
+                        <p class="text-xl font-semibold mt-2">Years Experience</p>
+                        <p class="text-blue-100 mt-2">Industry expertise</p>
+                    </div>
+                    <div class="section-fade">
+                        <div class="stat-counter">100%</div>
+                        <p class="text-xl font-semibold mt-2">Quality Assurance</p>
+                        <p class="text-blue-100 mt-2">Standards compliance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 px-6 bg-gray-50 section-fade">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Our Services</h2>
+                    <p class="text-xl text-gray-600">Comprehensive automation solutions for modern industries</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Service 1 - Automation Solutions -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
+                        <div class="h-48 icon-card-bg flex items-center justify-center">
+                            <i class="fas fa-microchip text-8xl text-blue-600 icon-bounce"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
+                                <i class="fas fa-bolt text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Automation Solutions</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                We provide innovative electrical automation solutions for ship retrofitting and industrial automation systems.
+                            </p>
+                            <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 - Electrical Automation -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
+                        <div class="h-48 icon-card-bg flex items-center justify-center">
+                            <i class="fas fa-plug text-8xl text-blue-600 icon-bounce"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
+                                <i class="fas fa-plug text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Electrical Automation</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Enhancing electrical systems with smart automation technologies to improve efficiency and reliability.
+                            </p>
+                            <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 - Web Development -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
+                        <div class="h-48 icon-card-bg flex items-center justify-center">
+                            <i class="fas fa-code text-8xl text-blue-600 icon-bounce"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
+                                <i class="fas fa-laptop-code text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Web Development</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Creating dynamic and responsive websites using modern technologies to improve user experience and functionality.
+                            </p>
+                            <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 - Consultation (Full Width) -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift md:col-span-3">
+                        <div class="grid md:grid-cols-3">
+                            <div class="h-64 md:h-auto icon-card-bg flex items-center justify-center">
+                                <i class="fas fa-users-cog text-9xl text-blue-600 icon-bounce"></i>
+                            </div>
+                            <div class="md:col-span-2 p-8 flex flex-col justify-center">
+                                <div class="flex items-start gap-6">
+                                    <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-user-tie text-3xl text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Electrical Related Consultation</h3>
+                                        <p class="text-gray-600 leading-relaxed mb-6">
+                                            Providing expert guidance on electrical systems to enhance safety, efficiency, and compliance with industry standards.
+                                        </p>
+                                        <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
+                                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Gallery Section -->
+        <section id="projects" class="py-20 px-6 bg-white section-fade">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Our Projects</h2>
+                    <p class="text-xl text-gray-600">Showcasing excellence in automation and technology</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card shadow-lg p-8 hover-lift">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-industry text-5xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Industrial Automation System</h3>
+                            <p class="text-sm text-gray-600">Advanced control systems implementation</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card shadow-lg p-8 hover-lift">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-ship text-5xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Ship Electrical Retrofitting</h3>
+                            <p class="text-sm text-gray-600">Marine electrical system modernization</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card shadow-lg p-8 hover-lift">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-network-wired text-5xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Smart Factory Integration</h3>
+                            <p class="text-sm text-gray-600">IoT-enabled manufacturing solutions</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card shadow-lg p-8 hover-lift">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-bolt text-5xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Power Distribution System</h3>
+                            <p class="text-sm text-gray-600">Efficient energy management</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card shadow-lg p-8 hover-lift">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-server text-5xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Custom Control Panels</h3>
+                            <p class="text-sm text-gray-600">Tailored automation solutions</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card shadow-lg p-8 hover-lift">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-laptop-code text-5xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Web Platform Development</h3>
+                            <p class="text-sm text-gray-600">Modern digital solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 px-6 bg-gray-50 section-fade">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
+                    <p class="text-xl text-gray-600">What our clients say about us</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                        <div class="text-yellow-400 mb-4 text-2xl">★★★★★</div>
+                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                            "Ibratech Automation transformed our operations with their innovative and reliable electrical automation solutions. Highly recommended!"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                JD
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800">John Doe</p>
+                                <p class="text-gray-600 text-sm">Operations Manager</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                        <div class="text-yellow-400 mb-4 text-2xl">★★★★★</div>
+                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                            "The team at Ibratech Automation provided exceptional service, modernizing our systems efficiently and effectively."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                JS
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800">Jane Smith</p>
+                                <p class="text-gray-600 text-sm">Technical Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Banner -->
+        <section class="py-16 px-6 gradient-bg text-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Innovative Automation Solutions</h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    Precision engineering for marine and industrial sectors
+                </p>
+                <a href="#contact" class="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
+                    Get Started Today
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-6 bg-gray-50 section-fade">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Contact Us</h2>
+                    <p class="text-xl text-gray-600">Get in touch with our expert team</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Ibratech Automation LLP</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800 mb-1">Address</p>
+                                    <p class="text-gray-600">71-75 Shelton Street<br>Covent Garden<br>London WC2H 9JQ, United Kingdom</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800 mb-1">Email</p>
+                                    <a href="mailto:contact@ibratech-automation.com" class="text-blue-600 hover:underline">contact@ibratech-automation.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-globe text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800 mb-1">Website</p>
+                                    <a href="https://www.ibratech-automation.com" class="text-blue-600 hover:underline">www.ibratech-automation.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send us a message</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your message"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-8 px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <p class="text-gray-400">© 2025 Ibratech Automation LLP. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let sidebarOpen = false;
+        
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebar.classList.remove('-translate-x-full');
+                if (window.innerWidth >= 1024) {
+                    mainContent.classList.add('lg:ml-64');
+                } else {
+                    overlay.classList.remove('hidden');
+                }
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+                mainContent.classList.remove('lg:ml-64');
+            }
+        }
+        
+        // Auto open sidebar on desktop
+        window.addEventListener('load', function() {
+            if (window.innerWidth >= 1024) {
+                toggleSidebar();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            if (window.innerWidth >= 1024) {
+                if (!sidebarOpen) {
+                    sidebar.classList.remove('-translate-x-full');
+                    mainContent.classList.add('lg:ml-64');
+                    sidebarOpen = true;
+                }
+                overlay.classList.add('hidden');
+            } else {
+                if (sidebarOpen) {
+                    sidebar.classList.add('-translate-x-full');
+                    mainContent.classList.remove('lg:ml-64');
+                    sidebarOpen = false;
+                }
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close sidebar on mobile after clicking
+                    if (window.innerWidth < 1024 && sidebarOpen) {
+                        toggleSidebar();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
