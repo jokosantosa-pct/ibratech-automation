@@ -57,6 +57,18 @@
             overflow: hidden;
         }
         
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
         .video-overlay {
             position: absolute;
             top: 0;
@@ -66,33 +78,46 @@
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(30, 64, 175, 0.85) 100%);
         }
         
-        .icon-card-bg {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-        }
-        
         .service-card {
             position: relative;
             overflow: hidden;
+        }
+        
+        .service-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover img {
+            transform: scale(1.1);
         }
         
         .project-card {
             position: relative;
             overflow: hidden;
             border-radius: 1rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
         }
         
-        .project-card:hover {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        .project-card img {
+            transition: transform 0.5s ease;
         }
         
-        .icon-bounce {
-            animation: bounce 2s infinite;
+        .project-card:hover img {
+            transform: scale(1.05);
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -171,43 +196,54 @@
             </div>
         </div>
 
-        <!-- Hero Section -->
-        <section id="home" class="relative overflow-hidden gradient-bg text-white py-24 px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="section-fade">
-                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                            Advanced Electrical Automation Solutions
-                        </h1>
-                        <p class="text-xl text-blue-100 mb-8 leading-relaxed">
-                            Innovative technologies for Industrial, Electrical Automation, Web Development, Design, Marketing, Writing, Consulting, and IT support.
-                        </p>
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Reliable</span>
-                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Efficient</span>
-                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Innovative</span>
-                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Expert</span>
-                            <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Trusted</span>
-                        </div>
-                        <div class="flex gap-4">
-                            <a href="#services" class="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
-                                Our Services
-                            </a>
-                            <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
-                                Contact Us
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hidden lg:block">
-                        <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20">
-                            <div class="text-yellow-400 mb-4 text-3xl">
-                                ★★★★★
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Quality Assurance</h3>
-                            <p class="text-blue-100">
-                                Trusted by 150+ clients worldwide with 15+ years of expertise in automation solutions.
+        <!-- Hero Section with Video Background -->
+        <section id="home" class="relative overflow-hidden h-screen">
+            <div class="video-container">
+                <!-- <video autoplay muted loop playsinline>
+                    <source src="https://videos.pexels.com/video-files/6520448/6520448-uhd_2560_1440_24fps.mp4" type="video/mp4">
+                </video> -->
+                <div class="video-overlay"></div>
+            </div>
+            
+            <div class="absolute inset-0 flex items-center justify-center text-white px-6">
+                <div class="max-w-6xl mx-auto w-full">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="section-fade">
+                            <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                                Improving Your Systems, Solving Your Problems
+                            </h1>
+                            <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                                We specialize in automation, electrical design, and climate control solutions — helping industries achieve maximum reliability and energy efficiency.
                             </p>
+                            <div class="flex flex-wrap gap-3 mb-8">
+                                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Reliable</span>
+                                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Efficient</span>
+                                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Innovative</span>
+                                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Expert</span>
+                                <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Trusted</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="#services" class="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
+                                    Our Services
+                                </a>
+                                <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                                    Contact Us
+                                </a>
+                            </div>
                         </div>
+
+                        <!-- <div class="hidden lg:block">
+                            <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20">
+                                <div class="text-yellow-400 mb-4 text-3xl">
+                                    ★★★★★
+                                </div>
+                                <h3 class="text-2xl font-bold mb-4">Quality Assurance</h3>
+                                <p class="text-blue-100">
+                                    Trusted by 150+ clients worldwide with 15+ years of expertise in automation solutions.
+                                </p>
+                            </div>
+                        </div> -->
+
                     </div>
                 </div>
             </div>
@@ -228,7 +264,7 @@
         </section>
 
         <!-- Stats Section -->
-        <section id="stats" class="py-16 px-6 bg-gradient-to-r from-blue-600 to-blue-800">
+        <!-- <section id="stats" class="py-16 px-6 bg-gradient-to-r from-blue-600 to-blue-800">
             <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-3 gap-8 text-center text-white">
                     <div class="section-fade">
@@ -248,7 +284,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Services Section -->
         <section id="services" class="py-20 px-6 bg-gray-50 section-fade">
@@ -261,8 +297,8 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Service 1 - Automation Solutions -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 icon-card-bg flex items-center justify-center">
-                            <i class="fas fa-microchip text-8xl text-blue-600 icon-bounce"></i>
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&h=280" alt="Automation Solutions" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
                             <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
@@ -280,12 +316,12 @@
 
                     <!-- Service 2 - Electrical Automation -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 icon-card-bg flex items-center justify-center">
-                            <i class="fas fa-plug text-8xl text-blue-600 icon-bounce"></i>
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1735494034760-2c5bdf4a58bc?auto=format&fit=crop&w=400&h=280" alt="Electrical Automation" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
-                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-plug text-2xl text-blue-600"></i>
+                            <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
+                                <i class="fas fa-plug text-2xl text-purple-600"></i>
                             </div>
                             <h3 class="text-2xl font-bold text-gray-800 mb-3">Electrical Automation</h3>
                             <p class="text-gray-600 leading-relaxed mb-4">
@@ -297,18 +333,56 @@
                         </div>
                     </div>
 
-                    <!-- Service 3 - Web Development -->
+                    <!-- Service 3 -  -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 icon-card-bg flex items-center justify-center">
-                            <i class="fas fa-code text-8xl text-blue-600 icon-bounce"></i>
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?auto=format&fit=crop&w=400&h=280" alt="Web Development" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
                             <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-laptop-code text-2xl text-blue-600"></i>
+                                <i class="fas fa-project-diagram text-2xl text-blue-600"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Web Development</h3>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Electrical Engineering Design</h3>
                             <p class="text-gray-600 leading-relaxed mb-4">
-                                Creating dynamic and responsive websites using modern technologies to improve user experience and functionality.
+                                We Design, Draft & Convert Your Electrical Drawings
+                            </p>
+                            <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?auto=format&fit=crop&w=400&h=280" alt="Web Development" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
+                                <i class="fas fa-wrench text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Crane Automation Repair & Retrofit Specialist</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Expert solutions to restore, upgrade, and modernize your crane automation systems for maximum safety, efficiency, and reliability.
+                            </p>
+                            <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?auto=format&fit=crop&w=400&h=280" alt="Web Development" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
+                                <i class="fas fa-thermometer-half text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">HVAC Solutions Expert</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Providing reliable solutions for heating, ventilation, and air conditioning systems to ensure comfort, efficiency, and performance.
                             </p>
                             <a href="#contact" class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
                                 Learn more <i class="fas fa-arrow-right ml-2"></i>
@@ -319,13 +393,13 @@
                     <!-- Service 4 - Consultation (Full Width) -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift md:col-span-3">
                         <div class="grid md:grid-cols-3">
-                            <div class="h-64 md:h-auto icon-card-bg flex items-center justify-center">
-                                <i class="fas fa-users-cog text-9xl text-blue-600 icon-bounce"></i>
+                            <div class="h-64 md:h-auto overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=400" alt="Consultation" class="w-full h-full object-cover">
                             </div>
                             <div class="md:col-span-2 p-8 flex flex-col justify-center">
                                 <div class="flex items-start gap-6">
-                                    <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                        <i class="fas fa-user-tie text-3xl text-blue-600"></i>
+                                    <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-users-cog text-3xl text-purple-600"></i>
                                     </div>
                                     <div>
                                         <h3 class="text-2xl font-bold text-gray-800 mb-4">Electrical Related Consultation</h3>
@@ -348,120 +422,62 @@
         <section id="projects" class="py-20 px-6 bg-white section-fade">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Our Projects</h2>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Our Services</h2>
                     <p class="text-xl text-gray-600">Showcasing excellence in automation and technology</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project 1 -->
-                    <div class="project-card shadow-lg p-8 hover-lift">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-industry text-5xl text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Industrial Automation System</h3>
-                            <p class="text-sm text-gray-600">Advanced control systems implementation</p>
+                    <div class="project-card shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&h=400" alt="Industrial Automation" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Industrial Automation System</h3>
+                            <p class="text-sm text-gray-200">Advanced control systems implementation</p>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="project-card shadow-lg p-8 hover-lift">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-ship text-5xl text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Ship Electrical Retrofitting</h3>
-                            <p class="text-sm text-gray-600">Marine electrical system modernization</p>
+                    <div class="project-card shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&h=400" alt="Ship Retrofitting" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Ship Electrical Retrofitting</h3>
+                            <p class="text-sm text-gray-200">Marine electrical system modernization</p>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="project-card shadow-lg p-8 hover-lift">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-network-wired text-5xl text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Smart Factory Integration</h3>
-                            <p class="text-sm text-gray-600">IoT-enabled manufacturing solutions</p>
+                    <div class="project-card shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&h=400" alt="Smart Factory" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Smart Factory Integration</h3>
+                            <p class="text-sm text-gray-200">IoT-enabled manufacturing solutions</p>
                         </div>
                     </div>
 
                     <!-- Project 4 -->
-                    <div class="project-card shadow-lg p-8 hover-lift">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-bolt text-5xl text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Power Distribution System</h3>
-                            <p class="text-sm text-gray-600">Efficient energy management</p>
+                    <div class="project-card shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&h=400" alt="Power Distribution" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Power Distribution System</h3>
+                            <p class="text-sm text-gray-200">Efficient energy management</p>
                         </div>
                     </div>
 
                     <!-- Project 5 -->
-                    <div class="project-card shadow-lg p-8 hover-lift">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-server text-5xl text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Custom Control Panels</h3>
-                            <p class="text-sm text-gray-600">Tailored automation solutions</p>
+                    <div class="project-card shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&h=400" alt="Control Panel" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Custom Control Panels</h3>
+                            <p class="text-sm text-gray-200">Tailored automation solutions</p>
                         </div>
                     </div>
 
                     <!-- Project 6 -->
-                    <div class="project-card shadow-lg p-8 hover-lift">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-laptop-code text-5xl text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Web Platform Development</h3>
-                            <p class="text-sm text-gray-600">Modern digital solutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 px-6 bg-gray-50 section-fade">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
-                    <p class="text-xl text-gray-600">What our clients say about us</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Testimonial 1 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
-                        <div class="text-yellow-400 mb-4 text-2xl">★★★★★</div>
-                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-                            "Ibratech Automation transformed our operations with their innovative and reliable electrical automation solutions. Highly recommended!"
-                        </p>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                                JD
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-800">John Doe</p>
-                                <p class="text-gray-600 text-sm">Operations Manager</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
-                        <div class="text-yellow-400 mb-4 text-2xl">★★★★★</div>
-                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-                            "The team at Ibratech Automation provided exceptional service, modernizing our systems efficiently and effectively."
-                        </p>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                                JS
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-800">Jane Smith</p>
-                                <p class="text-gray-600 text-sm">Technical Director</p>
-                            </div>
+                    <div class="project-card shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&h=400" alt="Web Platform" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Web Platform Development</h3>
+                            <p class="text-sm text-gray-200">Modern digital solutions</p>
                         </div>
                     </div>
                 </div>
@@ -543,7 +559,7 @@
                                 <label class="block text-gray-700 font-semibold mb-2">Message</label>
                                 <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your message"></textarea>
                             </div>
-                            <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+                            <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition shadow-lg">
                                 Send Message
                             </button>
                         </form>
@@ -588,6 +604,28 @@
         window.addEventListener('load', function() {
             if (window.innerWidth >= 1024) {
                 toggleSidebar();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            if (window.innerWidth >= 1024) {
+                if (!sidebarOpen) {
+                    sidebar.classList.remove('-translate-x-full');
+                    mainContent.classList.add('lg:ml-64');
+                    sidebarOpen = true;
+                }
+                overlay.classList.add('hidden');
+            } else {
+                if (sidebarOpen) {
+                    sidebar.classList.add('-translate-x-full');
+                    mainContent.classList.remove('lg:ml-64');
+                    sidebarOpen = false;
+                }
             }
         });
         
