@@ -277,11 +277,31 @@
 
         .carousel-container {
             display: flex;
-            animation: scroll 20s linear infinite;
+            animation: scroll 5s linear infinite; /* Default mobile */
         }
-
         .carousel-container:hover {
             animation-play-state: paused;
+        }
+        
+        /* Small devices (sm: 640px and up) */
+        @media (min-width: 640px) {
+            .carousel-container {
+                animation: scroll 10s linear infinite;
+            }
+        }
+        
+        /* Medium devices (md: 768px and up) */
+        @media (min-width: 768px) {
+            .carousel-container {
+                animation: scroll 15s linear infinite;
+            }
+        }
+        
+        /* Large devices (lg: 1024px and up) */
+        @media (min-width: 1024px) {
+            .carousel-container {
+                animation: scroll 20s linear infinite;
+            }
         }
 
         @keyframes scroll {
