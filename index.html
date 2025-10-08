@@ -65,7 +65,7 @@
             overflow: hidden;
         }
 
-        .video-container video {
+        /* .video-container img {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -75,7 +75,7 @@
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
-        }
+        } */
 
         .video-overlay {
             position: absolute;
@@ -83,7 +83,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(30, 64, 175, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(4, 55, 164, 0.7) 0%, rgba(4, 29, 111, 0.7) 100%);
         }
 
         .service-card {
@@ -275,42 +275,22 @@
             scroll-behavior: smooth;
         }
 
+        .carousel-container {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+
+        .carousel-container:hover {
+            animation-play-state: paused;
+        }
+
         @keyframes scroll {
             0% {
                 transform: translateX(0);
             }
+
             100% {
-                transform: translateX(-33.333%); /* Karena ada 3 set */
-            }
-        }
-        
-        .carousel-container {
-            display: flex;
-            animation: scroll 5s linear infinite; /* Default mobile: 5s */
-        }
-        
-        .carousel-container:hover {
-            animation-play-state: paused;
-        }
-        
-        /* Small devices (sm: 640px and up) */
-        @media (min-width: 640px) {
-            .carousel-container {
-                animation: scroll 10s linear infinite;
-            }
-        }
-        
-        /* Medium devices (md: 768px and up) */
-        @media (min-width: 768px) {
-            .carousel-container {
-                animation: scroll 15s linear infinite;
-            }
-        }
-        
-        /* Large devices (lg: 1024px and up) */
-        @media (min-width: 1024px) {
-            .carousel-container {
-                animation: scroll 20s linear infinite;
+                transform: translateX(-50%);
             }
         }
 
@@ -335,6 +315,110 @@
 
         .logo-text {
             font-size: 2rem;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .diagonal-panels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .panel {
+            position: relative;
+            flex: 1;
+            height: 100%;
+            overflow: hidden;
+            transform: translateY(-100%);
+            animation: slideDown 1s ease-out forwards;
+        }
+
+        .panel:nth-child(1) {
+            animation-delay: 0.1s;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+            margin-left: -15%;
+            z-index: -100;
+        }
+
+        .panel:nth-child(2) {
+            animation-delay: 0.3s;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+            margin-left: -15%;
+            z-index: -102;
+        }
+
+        .panel:nth-child(3) {
+            animation-delay: 0.5s;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+            margin-left: -15%;
+            z-index: -103;
+        }
+
+        @keyframes slideDown {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .panel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            /* filter: brightness(0.7); */
+        }
+
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content p {
+                font-size: 1.1rem;
+            }
+
+            .panel:nth-child(1) {
+                clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+            }
+
+            .panel:nth-child(2) {
+                clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+            }
+
+            .panel:nth-child(3) {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content h1 {
+                font-size: 2rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
         }
     </style>
 
@@ -429,13 +513,31 @@
         </div>
 
         <!-- Hero Section with Video Background -->
-        <section id="home" class="relative overflow-hidden h-screen gradient-bg">
-            <!-- <div class="video-container">
-                <video autoplay muted loop playsinline>
-                    <source src="https://videos.pexels.com/video-files/6520448/6520448-uhd_2560_1440_24fps.mp4" type="video/mp4">
-                </video> 
+        <section id="home" class="relative overflow-hidden h-screen">
+            <div class="video-container">
+                <!-- <img src="asset/bg_header.png"> -->
+                <!-- Diagonal Panels -->
+                <div class="diagonal-panels">
+                    <!-- Panel 1: Marine/Shipping -->
+                    <div class="panel">
+                        <img src="https://images.unsplash.com/photo-1561484930-291119937d44?w=1200&q=500"
+                            alt="Marine Shipping" class="panel-image">
+                    </div>
+
+                    <!-- Panel 2: Offshore Platform -->
+                    <div class="panel">
+                        <img src="https://images.unsplash.com/photo-1690508313456-bf8c851e8319?w=1200&q=500"
+                            alt="Offshore Platform" class="panel-image">
+                    </div>
+
+                    <!-- Panel 3: Manufacturing -->
+                    <div class="panel">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=500"
+                            alt="Manufacturing" class="panel-image">
+                    </div>
+                </div>
                 <div class="video-overlay"></div>
-            </div>-->
+            </div>
 
             <div class="absolute inset-0 flex items-center justify-center text-white px-6">
                 <div class="max-w-6xl mx-auto w-full">
@@ -492,38 +594,56 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                     <!-- Marine Box -->
                     <div
-                        class="group bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div
-                            class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                            <i class="fas fa-ship text-white text-3xl"></i>
+                        class="group relative bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                            style="background-image: url('https://images.unsplash.com/photo-1561484930-291119937d44?w=400&q=300'); filter: brightness(0.7);">
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Marine</h3>
-                        <!-- <p class="text-gray-600">Specialized automation solutions for maritime vessels and offshore
-                            platforms</p> -->
+
+                        <!-- Content -->
+                        <div class="relative z-10 p-8 text-center">
+                            <div
+                                class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                                <i class="fas fa-ship text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Marine</h3>
+                        </div>
                     </div>
 
                     <!-- Oil and Gas Box -->
                     <div
-                        class="group bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:border-orange-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div
-                            class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                            <i class="fas fa-oil-can text-white text-3xl"></i>
+                        class="group relative bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-orange-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-900 group-hover:opacity-100 transition-opacity duration-300"
+                            style="background-image: url('https://images.unsplash.com/photo-1690508313456-bf8c851e8319?w=800&q=80'); filter: brightness(0.7);">
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Oil and Gas</h3>
-                        <!-- <p class="text-gray-600">Advanced electrical systems for oil and gas exploration and production
-                        </p> -->
+
+                        <!-- Content -->
+                        <div class="relative z-10 p-8 text-center">
+                            <div
+                                class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                                <i class="fas fa-oil-well text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Offshore</h3>
+                        </div>
                     </div>
 
                     <!-- Industrial Sector Box -->
                     <div
-                        class="group bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div
-                            class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                            <i class="fas fa-industry text-white text-3xl"></i>
+                        class="group relative bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-900 group-hover:opacity-100 transition-opacity duration-300"
+                            style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=300'); filter: brightness(0.7);">
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Industrial Sector</h3>
-                        <!-- <p class="text-gray-600">Comprehensive automation solutions for manufacturing and industrial
-                            facilities</p> -->
+
+                        <!-- Content -->
+                        <div class="relative z-10 p-8 text-center">
+                            <div
+                                class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                                <i class="fas fa-industry text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Industrial Sector</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -534,7 +654,9 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Services</h2>
-                    <p class="text-xl text-gray-600">Comprehensive automation solutions for modern industries</p>
+                    <p class="text-xl text-gray-600"><b>What We Do</b><br>
+                        Comprehensive automation, electrical, and control services for marine and industrial sectors.
+                    </p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
@@ -1108,27 +1230,6 @@
                                 class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
                                 <span class="text-2xl font-bold text-purple-700 mb-3">Profibus</span>
                             </div>
-
-                             <!-- Industrial Communication -->
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-xl font-bold text-yellow-700 mb-3">Modbus RTU/TCP</span>
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-gray-700 mb-3">CAN Bus</span>
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-xl font-bold text-blue-700 mb-3">RS-485/RS-232</span>
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-purple-700 mb-3">Profibus</span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1137,6 +1238,18 @@
                 <div id="content-pcb" class="hidden mt-8">
                     <div class="relative overflow-hidden py-8">
                         <div class="carousel-container flex gap-6">
+                            <!-- PCB Design -->
+                            <div
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                <span class="text-2xl font-bold text-yellow-600 mb-3">EAGLE</span>
+                            </div>
+
+                            <div
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                <img src="https://logo.clearbit.com/altium.com" alt="Altium"
+                                    class="logo-img mb-3 object-contain"
+                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%231b6ac6%22 font-weight=%22bold%22>Altium</text></svg>'">
+                            </div>
                             <!-- PCB Design -->
                             <div
                                 class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
@@ -1309,39 +1422,6 @@
                                 <img src="https://w1.weintek.com/Images/logo.png" alt="Weintek"
                                     class="logo-img mb-3 object-contain">
                             </div>
-                            <!-- LabVIEW -->
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/ni.com" alt="LabVIEW"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 80%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 fill=%22%23ffb500%22 font-weight=%22bold%22>LabVIEW</text></svg>'">
-                            </div>
-
-                            <!-- WinCC -->
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="logo-text font-bold text-cyan-600 mb-3">WinCC</span>
-                            </div>
-
-                            <!-- NetBeans -->
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Apache_NetBeans_Logo.svg/250px-Apache_NetBeans_Logo.svg.png"
-                                    alt="NetBeans" class="logo-img mb-3 object-contain">
-                            </div>
-
-                            <!-- Vijeo Designer -->
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="logo-text font-bold text-green-600 mb-3 text-center">Vijeo Designer</span>
-                            </div>
-
-                            <!-- Weintek -->
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://w1.weintek.com/Images/logo.png" alt="Weintek"
-                                    class="logo-img mb-3 object-contain">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1392,47 +1472,6 @@
                             </div>
 
                             <!-- PLC Systems -->
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/330px-Siemens_AG_logo.svg.png"
-                                    alt="Siemens PLC" class="logo-img mb-3 object-contain">
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Schneider_Electric_2007.svg/250px-Schneider_Electric_2007.svg.png"
-                                    alt="Schneider PLC" class="logo-img mb-3 object-contain">
-
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/wago.com" alt="Wago"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%2300a651%22 font-weight=%22bold%22>WAGO</text></svg>'">
-
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mitsubishi_Electric_logo.svg/250px-Mitsubishi_Electric_logo.svg.png"
-                                    alt="Mitsubishi PLC" class="logo-img mb-3 object-contain">
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-blue-600 mb-3">CROUZET</span>
-
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/omron.com" alt="Omron"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%230066b2%22 font-weight=%22bold%22>OMRON</text></svg>'">
-                            </div>
-
-                             <!-- PLC Systems -->
                             <div
                                 class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/330px-Siemens_AG_logo.svg.png"
@@ -1820,4 +1859,5 @@
         });
     </script>
 </body>
+
 </html>
