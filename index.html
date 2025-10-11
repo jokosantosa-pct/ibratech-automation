@@ -65,13 +65,25 @@
             overflow: hidden;
         }
 
+        /* .video-container img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        } */
+
         .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(4, 55, 164, 0.8) 0%, rgba(4, 29, 111, 0.7) 100%);
+            background: linear-gradient(135deg, rgba(4, 55, 164, 0.3) 0%, rgba(4, 29, 111, 0.3) 100%);
         }
 
         .service-card {
@@ -263,9 +275,31 @@
             scroll-behavior: smooth;
         }
 
+
         .carousel-container {
             display: flex;
-            animation: scroll 20s linear infinite;
+            animation: scroll 10s linear infinite;
+        }
+
+        @media (min-width: 640px) {
+            .carousel-container {
+                display: flex;
+                animation: scroll 15s linear infinite;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .carousel-container {
+                display: flex;
+                animation: scroll 20s linear infinite;
+            }
+        }
+
+        @media (min-width: 1024) {
+            .carousel-container {
+                display: flex;
+                animation: scroll 25s linear infinite;
+            }
         }
 
         .carousel-container:hover {
@@ -278,7 +312,7 @@
             }
 
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-100%);
             }
         }
 
@@ -307,7 +341,7 @@
 
         .hero-section {
             position: relative;
-            height: 100vh;
+            min-height: 100vh;
             overflow: hidden;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         }
@@ -333,7 +367,7 @@
         .panel:nth-child(1) {
             animation-delay: 0.1s;
             clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-            margin-left: -15%;
+            margin-left: -10%;
             z-index: -100;
         }
 
@@ -365,7 +399,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            /* filter: brightness(0.7); */
+            filter: brightness(0.7);
         }
 
         @media (max-width: 768px) {
@@ -428,11 +462,11 @@
                 <i class="fas fa-home w-5"></i>
                 <span class="ml-3">Home</span>
             </a>
-            <a href="#about"
+            <!-- <a href="#about"
                 class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
                 <i class="fas fa-info-circle w-5"></i>
                 <span class="ml-3">About</span>
-            </a>
+            </a> -->
             <a href="#services"
                 class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
                 <i class="fas fa-project-diagram w-5"></i>
@@ -445,7 +479,7 @@
             </a>
             <a href="#tools"
                 class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
-                <i class="fas fa-wrench w-5"></i>
+                <i class="fas fa-toolbox w-5"></i>
                 <span class="ml-3">Products</span>
             </a>
             <a href="#contact"
@@ -508,8 +542,9 @@
                 <div class="diagonal-panels">
                     <!-- Panel 1: Marine/Shipping -->
                     <div class="panel">
-                        <img src="https://images.unsplash.com/photo-1561484930-291119937d44?w=1200&q=500"
+                        <img src="https://images.unsplash.com/photo-1561484930-291119937d44?w=1470&q=500"
                             alt="Marine Shipping" class="panel-image">
+                        <!-- Content -->
                     </div>
 
                     <!-- Panel 2: Offshore Platform -->
@@ -528,15 +563,15 @@
             </div>
 
             <div class="absolute inset-0 flex items-center justify-center text-white px-6">
-                <div class="max-w-6xl mx-auto w-full">
-                    <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <div class="section-fade">
+                <div class="max-w-8xl mx-auto w-full">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center md:pl-20">
+                        <div class="section-fade md:pl-20">
                             <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                                 Improving Your Systems, Solving Your Problems
                             </h1>
-                            <p class="text-xl text-blue-100 mb-8 leading-relaxed">
-                                We specialize in automation, electrical design, and climate control solutions — helping
-                                industries achieve maximum reliability and energy efficiency.
+                            <p class="text-xl text-white mb-8 leading-relaxed">
+                                Tailored complete design, installation, and maintenance services for automation and
+                                electrical systems.
                             </p>
                             <div class="flex flex-wrap gap-3 mb-8">
                                 <span
@@ -550,87 +585,56 @@
                             </div>
                             <div class="flex gap-4">
                                 <a href="#services"
-                                    class="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
+                                    class="px-2 md:px-4 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
                                     Our Services
                                 </a>
                                 <a href="#contact"
-                                    class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                                    class="px-2 md:px-4 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
                                     Contact Us
                                 </a>
                             </div>
+
                         </div>
 
                     </div>
-                </div>
-            </div>
-        </section>
+                    <!-- Three Boxes Section -->
+                    <div class="grid grid-cols-3 gap-10 mt-12">
+                        <!-- Marine Box -->
+                        <div class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
 
-        <!-- About Section -->
-        <section id="about" class="py-20 px-6 bg-white section-fade">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-                        Ibratech Automation
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        At Ibratech Automation, we specialize in electrical automation and providing consulting -
-                        supervision of electrical related projects to ensure they meet industrial standards.
-                    </p>
-                </div>
-
-                <!-- Three Boxes Section -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    <!-- Marine Box -->
-                    <div
-                        class="group relative bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                            style="background-image: url('https://images.unsplash.com/photo-1561484930-291119937d44?w=400&q=300'); filter: brightness(0.7);">
-                        </div>
-
-                        <!-- Content -->
-                        <div class="relative z-10 p-8 text-center">
-                            <div
-                                class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                <i class="fas fa-ship text-white text-3xl"></i>
+                            <!-- Content -->
+                            <div class="relative z-10 text-center">
+                                <div
+                                    class="hidden md:block w-20 h-20 border-2 border-white rounded-full mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ">
+                                    <i class="fas fa-ship text-white text-3xl pt-4"></i>
+                                </div>
+                                <h3 class="texl-md md:text-2xl font-bold text-white mb-2">Marine</h3>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Marine</h3>
-                        </div>
-                    </div>
-
-                    <!-- Oil and Gas Box -->
-                    <div
-                        class="group relative bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-orange-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-900 group-hover:opacity-100 transition-opacity duration-300"
-                            style="background-image: url('https://images.unsplash.com/photo-1690508313456-bf8c851e8319?w=800&q=80'); filter: brightness(0.7);">
                         </div>
 
-                        <!-- Content -->
-                        <div class="relative z-10 p-8 text-center">
-                            <div
-                                class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                <i class="fas fa-oil-well text-white text-3xl"></i>
+                        <!-- Oil and Gas Box -->
+                        <div class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
+                            <!-- Content -->
+                            <div class="relative z-10 text-center">
+                                <div
+                                    class="hidden md:block w-20 h-20 border-2 border-white rounded-full mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ">
+                                    <i class="fas fa-oil-well text-white text-3xl pt-4"></i>
+                                </div>
+                                <h3 class="texl-md md:text-2xl font-bold text-white mb-2">Offshore</h3>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Offshore</h3>
-                        </div>
-                    </div>
-
-                    <!-- Industrial Sector Box -->
-                    <div
-                        class="group relative bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-900 group-hover:opacity-100 transition-opacity duration-300"
-                            style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=300'); filter: brightness(0.7);">
                         </div>
 
-                        <!-- Content -->
-                        <div class="relative z-10 p-8 text-center">
-                            <div
-                                class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                <i class="fas fa-industry text-white text-3xl"></i>
+                        <!-- Industrial Sector Box -->
+                        <div class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
+
+                            <!-- Content -->
+                            <div class="relative z-10 text-center">
+                                <div
+                                    class="hidden md:block w-20 h-20 border-2 border-white rounded-full mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ">
+                                    <i class="fas fa-industry text-white text-3xl pt-4"></i>
+                                </div>
+                                <h3 class="texl-md md:text-2xl font-bold text-white mb-2">Industrial Sector</h3>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Industrial Sector</h3>
                         </div>
                     </div>
                 </div>
@@ -642,8 +646,8 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Services</h2>
-                    <p class="text-xl text-gray-600"><b>What We Do</b><br>
-                        Comprehensive automation, electrical, and control services for marine and industrial sectors.
+                    <p class="text-xl text-gray-600"><b>How we help you?</b><br>
+                        Solving complex automation and electrical challenges efficiently, safely, and cost-effectively
                     </p>
                 </div>
 
@@ -767,7 +771,7 @@
                     <!-- Service 7 - Retrofit Design, Installation & Commissioning -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=400&h=280"
+                            <img src="asset/scv_retrofit.png"
                                 alt="Retrofit Design, Installation & Commissioning" class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
@@ -905,7 +909,7 @@
                     </div>
 
                     <!-- Service 6 - Electrical Related Consultation -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
+                    <!-- <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
                         <div class="h-48 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1652715564391-38cc4475b7f5?auto=format&fit=crop&w=400&h=280"
                                 alt="Electrical Related Consultation" class="w-full h-full object-cover">
@@ -925,7 +929,7 @@
                                 Learn more <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -935,30 +939,26 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Systems Expertise</h2>
-                    <p class="text-xl text-gray-600">Showcasing excellence in automation and technology</p>
+                    <p class="text-xl text-gray-600">Experience across a wide range of marine and industrial automation systems.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     <!-- Systems Expertise 2 - Advanced Fire & Gas Detection Control Systems -->
-                    <div class="project-card shadow-lg">
+                    <!-- <div class="project-card shadow-lg">
                         <img src="https://images.unsplash.com/photo-1659896974794-5c850f933210?auto=format&fit=crop&w=600&h=400"
                             alt="Fire and Gas Detection" class="w-full h-64 object-cover">
                         <div class="project-overlay text-white">
                             <h3 class="text-xl font-bold mb-2">Advanced Fire & Gas Detection Control Systems</h3>
-                            <!-- <p class="text-sm text-gray-200">Integrated safety systems for early fire and gas hazard
-                                detection onboard and in industrial facilities.</p> -->
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Systems Expertise 3 - Alarm Monitoring System -->
                     <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1757191376988-45331123a8dc?auto=format&fit=crop&w=600&h=400"
+                        <img src="asset/exp_alarm_monitoring_system.png"
                             alt="Alarm Monitoring System" class="w-full h-64 object-cover">
                         <div class="project-overlay text-white">
                             <h3 class="text-xl font-bold mb-2">Alarm Monitoring System</h3>
-                            <!-- <p class="text-sm text-gray-200">Centralized alarm and event monitoring for enhanced
-                                situational awareness and quick response.</p> -->
                         </div>
                     </div>
 
