@@ -442,6 +442,60 @@
                 width: 100%;
             }
         }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.7) 50%,
+                    rgba(255, 255, 255, 0.9) 100%);
+            transform: translateX(-100%);
+            z-index: 10;
+        }
+
+        .reveal-overlay.animate {
+            animation: slideReveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        .image-content {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+
+        .image-content.animate {
+            animation: fadeInScale 1.5s ease-out 0.3s forwards;
+        }
+
+        @keyframes slideReveal {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 
 </head>
@@ -462,11 +516,6 @@
                 <i class="fas fa-home w-5"></i>
                 <span class="ml-3">Home</span>
             </a>
-            <!-- <a href="#about"
-                class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
-                <i class="fas fa-info-circle w-5"></i>
-                <span class="ml-3">About</span>
-            </a> -->
             <a href="#services"
                 class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
                 <i class="fas fa-project-diagram w-5"></i>
@@ -537,7 +586,6 @@
         <!-- Hero Section with Video Background -->
         <section id="home" class="relative overflow-hidden h-screen">
             <div class="video-container">
-                <!-- <img src="asset/bg_header.png"> -->
                 <!-- Diagonal Panels -->
                 <div class="diagonal-panels">
                     <!-- Panel 1: Marine/Shipping -->
@@ -555,8 +603,7 @@
 
                     <!-- Panel 3: Manufacturing -->
                     <div class="panel">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=500"
-                            alt="Manufacturing" class="panel-image">
+                        <img src="asset/head_industrial.jpg" alt="Manufacturing" class="panel-image">
                     </div>
                 </div>
                 <div class="video-overlay"></div>
@@ -600,8 +647,8 @@
                     <!-- Three Boxes Section -->
                     <div class="grid grid-cols-3 gap-10 mt-12">
                         <!-- Marine Box -->
-                        <div class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
-
+                        <div
+                            class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
                             <!-- Content -->
                             <div class="relative z-10 text-center">
                                 <div
@@ -613,7 +660,8 @@
                         </div>
 
                         <!-- Oil and Gas Box -->
-                        <div class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
+                        <div
+                            class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
                             <!-- Content -->
                             <div class="relative z-10 text-center">
                                 <div
@@ -625,8 +673,8 @@
                         </div>
 
                         <!-- Industrial Sector Box -->
-                        <div class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
-
+                        <div
+                            class="group relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 pt-5">
                             <!-- Content -->
                             <div class="relative z-10 text-center">
                                 <div
@@ -652,127 +700,11 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Service 1 - Automation Solutions
+                    <!-- Service Retrofit Design, Installation & Commissioning -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=400&h=280"
-                                alt="Automation Solutions" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div
-                                class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-bolt text-2xl text-blue-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Automation Solutions</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">
-                                We provide innovative electrical automation solutions for ship retrofitting and
-                                industrial automation systems.
-                            </p>
-                            <a href="#contact"
-                                class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
-                                Learn more <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div> -->
-
-                    <!-- Service 2 - Electrical Automation 
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1714322148068-923f9f9bfc1a?auto=format&fit=crop&w=400&h=280"
-                                alt="Electrical Automation" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div
-                                class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-cogs text-2xl text-blue-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Electrical Automation</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">
-                                Enhancing electrical systems with smart automation technologies to improve efficiency
-                                and reliability.
-                            </p>
-                            <a href="#contact"
-                                class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
-                                Learn more <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>-->
-
-                    <!-- Service 3 - Electrical Engineering Design 
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&h=280"
-                                alt="Electrical Engineering Design" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div
-                                class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-drafting-compass text-2xl text-blue-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Electrical Engineering Design</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">
-                                We Design, Draft & Convert Your Electrical Drawings.
-                            </p>
-                            <a href="#contact"
-                                class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
-                                Learn more <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div> -->
-
-                    <!-- Service 4 - Crane Automation Repair & Retrofit 
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1559081584-bbaaa2ba8ebc?auto=format&fit=crop&w=400&h=280"
-                                alt="Crane Automation Repair & Retrofit" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div
-                                class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-wrench text-2xl text-blue-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Crane Automation Repair & Retrofit</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">
-                                Expert solutions to restore, upgrade, and modernize your crane automation systems for
-                                maximum safety, efficiency, and reliability.
-                            </p>
-                            <a href="#contact"
-                                class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
-                                Learn more <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div> -->
-
-                    <!-- Service 5 - HVAC Solutions 
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1752842936785-39ee0a9b5286?auto=format&fit=crop&w=400&h=280"
-                                alt="HVAC Solutions" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div
-                                class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-fan text-2xl text-blue-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">HVAC Solutions</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">
-                                Providing reliable solutions for heating, ventilation, and air conditioning systems to
-                                ensure comfort, efficiency, and performance.
-                            </p>
-                            <a href="#contact"
-                                class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
-                                Learn more <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>-->
-
-                    
-
-                    <!-- Service 7 - Retrofit Design, Installation & Commissioning -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 overflow-hidden">
-                            <img src="asset/scv_retrofit.png"
-                                alt="Retrofit Design, Installation & Commissioning" class="w-full h-full object-cover">
+                            <img src="asset/scv_retrofit.png" alt="Retrofit Design, Installation & Commissioning"
+                                class="w-full h-full object-cover">
                         </div>
                         <div class="p-6">
                             <div
@@ -791,7 +723,7 @@
                         </div>
                     </div>
 
-                    <!-- Service 8 - Inspection -->
+                    <!-- Service Inspection -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
                         <div class="h-48 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1604071334368-bb3cb256180b?auto=format&fit=crop&w=500&h=400"
@@ -815,7 +747,7 @@
                         </div>
                     </div>
 
-                    <!-- Service 9 - Troubleshooting -->
+                    <!-- Service Troubleshooting -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
                         <div class="h-48 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1652715564391-38cc4475b7f5?auto=format&fit=crop&w=400&h=280"
@@ -838,7 +770,7 @@
                         </div>
                     </div>
 
-                    <!-- Service 10 - PCB Design, Repair & Development -->
+                    <!-- Service PCB Design, Repair & Development -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
                         <div class="h-48 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1601193450490-19d012254e16?auto=format&fit=crop&w=400&h=280"
@@ -907,29 +839,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <!-- Service 6 - Electrical Related Consultation -->
-                    <!-- <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-lift service-card">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1652715564391-38cc4475b7f5?auto=format&fit=crop&w=400&h=280"
-                                alt="Electrical Related Consultation" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div
-                                class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10">
-                                <i class="fas fa-comments text-2xl text-blue-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Electrical Related Consultation</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">
-                                Providing expert guidance on electrical systems to enhance safety, efficiency, and
-                                compliance with industry standards.
-                            </p>
-                            <a href="#contact"
-                                class="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center">
-                                Learn more <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>
@@ -939,92 +848,87 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Systems Expertise</h2>
-                    <p class="text-xl text-gray-600">Experience across a wide range of marine and industrial automation systems.</p>
+                    <p class="text-xl text-gray-600">Experience across a wide range of marine and industrial automation
+                        systems.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <!-- Systems Expertise 2 - Advanced Fire & Gas Detection Control Systems -->
-                    <!-- <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1659896974794-5c850f933210?auto=format&fit=crop&w=600&h=400"
-                            alt="Fire and Gas Detection" class="w-full h-64 object-cover">
-                        <div class="project-overlay text-white">
-                            <h3 class="text-xl font-bold mb-2">Advanced Fire & Gas Detection Control Systems</h3>
-                        </div>
-                    </div> -->
-
-                    <!-- Systems Expertise 3 - Alarm Monitoring System -->
+                    <!-- Systems Expertise - Alarm Monitoring System -->
                     <div class="project-card shadow-lg">
-                        <img src="asset/exp_alarm_monitoring_system.png"
-                            alt="Alarm Monitoring System" class="w-full h-64 object-cover">
+                        <img src="asset/exp_alarm_monitoring_system.png" alt="Alarm Monitoring System"
+                            class="w-full h-64 object-cover">
                         <div class="project-overlay text-white">
                             <h3 class="text-xl font-bold mb-2">Alarm Monitoring System</h3>
                         </div>
                     </div>
 
-                    <!-- Systems Expertise 2 - Advanced Fire & Gas Detection Control Systems -->
+                    <!-- Systems Expertise - Main Engine Remote Control System -->
                     <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1659896974794-5c850f933210?auto=format&fit=crop&w=600&h=400"
-                            alt="Fire and Gas Detection" class="w-full h-64 object-cover">
-                        <div class="project-overlay text-white">
-                            <h3 class="text-xl font-bold mb-2">Ballast Control Systems</h3>
-                            <!-- <p class="text-sm text-gray-200">Integrated safety systems for early fire and gas hazard
-                                detection onboard and in industrial facilities.</p> -->
-                        </div>
-                    </div>
-
-                    <!-- Systems Expertise 3 - Alarm Monitoring System -->
-                    <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1757191376988-45331123a8dc?auto=format&fit=crop&w=600&h=400"
-                            alt="Alarm Monitoring System" class="w-full h-64 object-cover">
-                        <div class="project-overlay text-white">
-                            <h3 class="text-xl font-bold mb-2">Bilge Alarm Systems</h3>
-                            <!-- <p class="text-sm text-gray-200">Centralized alarm and event monitoring for enhanced
-                                situational awareness and quick response.</p> -->
-                        </div>
-                    </div>
-
-                    <!-- Systems Expertise 4 - Navigation Light -->
-                    <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1705386863942-d6df7accd86b?auto=format&fit=crop&w=600&h=400"
-                            alt="Navigation Light System" class="w-full h-64 object-cover">
-                        <div class="project-overlay text-white">
-                            <h3 class="text-xl font-bold mb-2">Navigation Light</h3>
-                            <!-- <p class="text-sm text-gray-200">Reliable marine navigation lighting control for compliance
-                                and vessel safety operations.</p> -->
-                        </div>
-                    </div>
-
-                    <!-- Systems Expertise 5 - Main Engine Remote Control System -->
-                    <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1591833255191-c42cf1b749f0?auto=format&fit=crop&w=600&h=400"
-                            alt="Main Engine Remote Control" class="w-full h-64 object-cover">
+                        <img src="asset/exp_main_engine_rc.png" alt="Main Engine Remote Control"
+                            class="w-full h-64 object-cover">
                         <div class="project-overlay text-white">
                             <h3 class="text-xl font-bold mb-2">Main Engine Remote Control System</h3>
-                            <!-- <p class="text-sm text-gray-200">Automated control and monitoring of ship main engines for
-                                safe and efficient maneuvering.</p> -->
                         </div>
                     </div>
 
-                    <!-- Systems Expertise 6 - Main Switchboard -->
+                    <!-- Systems Expertise - Crane -->
                     <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1678621777846-7ae1b6e0f228?auto=format&fit=crop&w=600&h=400"
-                            alt="Main Switchboard" class="w-full h-64 object-cover">
+                        <img src="asset/exp_crane.png" alt="Fire and Gas Detection" class="w-full h-64 object-cover">
                         <div class="project-overlay text-white">
-                            <h3 class="text-xl font-bold mb-2">Main Switchboard</h3>
-                            <!-- <p class="text-sm text-gray-200">Power distribution and control panels ensuring reliable and
-                                stable electrical operations.</p> -->
+                            <h3 class="text-xl font-bold mb-2">Crane</h3>
                         </div>
                     </div>
 
-                    <!-- Systems Expertise 7 - Loadbank -->
+
+                    <!-- Systems Expertise - Advanced Fire & Gas Detection Control Systems -->
                     <div class="project-card shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1588616437819-7d30e6f76e66?auto=format&fit=crop&w=600&h=400"
-                            alt="Loadbank Testing System" class="w-full h-64 object-cover">
+                        <img src="asset/exp_ballash.png" alt="Fire and Gas Detection" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Ballast Control Systems</h3>
+                        </div>
+                    </div>
+
+                    <!-- Systems Expertise - Alarm Monitoring System -->
+                    <div class="project-card shadow-lg">
+                        <img src="asset/exp_bilge.png" alt="Alarm Monitoring System" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Bilge Alarm Systems</h3>
+                        </div>
+                    </div>
+
+                    <!-- Systems Expertise - Safety & Communication -->
+                    <div class="project-card shadow-lg">
+                        <img src="asset/exp_safety_cs.png" alt="Alarm Monitoring System"
+                            class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Safety & Communication Systems (Fire & Gas Detection,
+                                CCTV, and PAGA)</h3>
+                        </div>
+                    </div>
+
+                    <!-- Systems Expertise - Navigation Light -->
+                    <div class="project-card shadow-lg">
+                        <img src="asset/exp_navigation_light.png" alt="Navigation Light System"
+                            class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">Navigation Light</h3>
+                        </div>
+                    </div>
+
+                    <!-- Systems Expertise - VAC Solution -->
+                    <div class="project-card shadow-lg">
+                        <img src="asset/exp_hvac.png" alt="Main Switchboard" class="w-full h-64 object-cover">
+                        <div class="project-overlay text-white">
+                            <h3 class="text-xl font-bold mb-2">HVAC Solution</h3>
+                        </div>
+                    </div>
+
+                    <!-- Systems Expertise - Loadbank -->
+                    <div class="project-card shadow-lg">
+                        <img src="asset/exp_loadbank.png" alt="Loadbank Testing System"
+                            class="w-full h-64 object-cover">
                         <div class="project-overlay text-white">
                             <h3 class="text-xl font-bold mb-2">Loadbank</h3>
-                            <!-- <p class="text-sm text-gray-200">Load testing systems for verifying generator performance
-                                and power reliability under simulated loads.</p> -->
                         </div>
                     </div>
 
@@ -1036,7 +940,7 @@
         <section id="tools" class="py-16 px-4">
             <div class="max-w-7xl mx-auto">
                 <!-- Header -->
-                <div class="gradient-bg py-8 rounded-t-lg">
+                <div class="bg-gray-900 py-4 rounded-t-lg">
                     <h2 class="text-white text-3xl md:text-4xl font-bold text-center tracking-wide">
                         Tools and Software Expertise
                     </h2>
@@ -1046,7 +950,7 @@
                 <div class="flex items-center justify-between bg-white shadow-md px-4 py-4 gap-2">
                     <button onclick="scrollTabs('left')"
                         class="text-2xl text-gray-400 hover:text-gray-600 transition flex-shrink-0">
-                        ←
+                        <i class="fas fa-arrow-left"></i>
                     </button>
 
                     <div id="tabContainer" class="tab-container flex gap-2 overflow-x-auto flex-1">
@@ -1082,67 +986,67 @@
 
                     <button onclick="scrollTabs('right')"
                         class="text-2xl text-gray-400 hover:text-gray-600 transition flex-shrink-0">
-                        →
+                        <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
-                <div id="content-vsd" class="hidden mt-8">
+                <div id="content-vsd" class="hidden mt-2">
                     <!-- Auto-scrolling Logo Carousel -->
                     <div class="relative overflow-hidden py-8">
                         <div class="carousel-container flex gap-6">
                             <!-- First Set of Logos -->
                             <!-- VSD -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/330px-Siemens_AG_logo.svg.png"
                                     alt="Siemens" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Schneider_Electric_2007.svg/250px-Schneider_Electric_2007.svg.png"
                                     alt="Schneider Electric" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mitsubishi_Electric_logo.svg/250px-Mitsubishi_Electric_logo.svg.png"
                                     alt="Mitsubishi" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- VSD -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/330px-Siemens_AG_logo.svg.png"
                                     alt="Siemens" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Schneider_Electric_2007.svg/250px-Schneider_Electric_2007.svg.png"
                                     alt="Schneider Electric" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mitsubishi_Electric_logo.svg/250px-Mitsubishi_Electric_logo.svg.png"
                                     alt="Mitsubishi" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- VSD -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/330px-Siemens_AG_logo.svg.png"
                                     alt="Siemens" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Schneider_Electric_2007.svg/250px-Schneider_Electric_2007.svg.png"
                                     alt="Schneider Electric" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mitsubishi_Electric_logo.svg/250px-Mitsubishi_Electric_logo.svg.png"
                                     alt="Mitsubishi" class="logo-img mb-3 object-contain">
                             </div>
@@ -1156,90 +1060,89 @@
                         <div class="carousel-container flex gap-6">
                             <!-- Electrical Design -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/autodesk.com" alt="AutoCAD"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%23e51937%22 font-weight=%22bold%22>AutoCAD</text></svg>'">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/AutoCad_new_logo.svg/2560px-AutoCad_new_logo.svg.png"
+                                    alt="AutoCAD" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-indigo-600 mb-3">Algotech</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.smart4d.org/wp-content/uploads/sites/3/2025/04/ALGOTECH42149155600013.png"
+                                    alt="Algotech" class="logo-img mb-3 object-contain">
                             </div>
+
                             <!-- Electrical Design -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/autodesk.com" alt="AutoCAD"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%23e51937%22 font-weight=%22bold%22>AutoCAD</text></svg>'">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/AutoCad_new_logo.svg/2560px-AutoCad_new_logo.svg.png"
+                                    alt="AutoCAD" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-indigo-600 mb-3">Algotech</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.smart4d.org/wp-content/uploads/sites/3/2025/04/ALGOTECH42149155600013.png"
+                                    alt="Algotech" class="logo-img mb-3 object-contain">
                             </div>
+
                             <!-- Electrical Design -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/autodesk.com" alt="AutoCAD"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%23e51937%22 font-weight=%22bold%22>AutoCAD</text></svg>'">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/AutoCad_new_logo.svg/2560px-AutoCad_new_logo.svg.png"
+                                    alt="AutoCAD" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-indigo-600 mb-3">Algotech</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.smart4d.org/wp-content/uploads/sites/3/2025/04/ALGOTECH42149155600013.png"
+                                    alt="Algotech" class="logo-img mb-3 object-contain">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Communication Content -->
-                <div id="content-communication" class="hidden mt-8">
+                <div id="content-communication" class="hidden mt-2">
                     <div class="relative overflow-hidden py-8">
                         <div class="carousel-container flex gap-6">
                             <!-- Industrial Communication -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-yellow-700 mb-3">Modbus RTU/TCP</span>
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-2xl font-bold text-gray-700 mb-3">CAN Bus</span>
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-blue-700 mb-3">RS-485/RS-232</span>
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-2xl font-bold text-purple-700 mb-3">Profibus</span>
                             </div>
 
                             <!-- Industrial Communication -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-yellow-700 mb-3">Modbus RTU/TCP</span>
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-2xl font-bold text-gray-700 mb-3">CAN Bus</span>
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-blue-700 mb-3">RS-485/RS-232</span>
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-2xl font-bold text-purple-700 mb-3">Profibus</span>
                             </div>
                         </div>
@@ -1252,48 +1155,55 @@
                         <div class="carousel-container flex gap-6">
                             <!-- PCB Design -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-yellow-600 mb-3">EAGLE</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.multi-circuit-boards.eu/fileadmin/img/05_Support/leiterplatten-daten/leiterplatte_eagle_logo_big.png"
+                                    alt="EAGLE" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/altium.com" alt="Altium"
                                     class="logo-img mb-3 object-contain"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%231b6ac6%22 font-weight=%22bold%22>Altium</text></svg>'">
                             </div>
+
                             <!-- PCB Design -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-yellow-600 mb-3">EAGLE</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.multi-circuit-boards.eu/fileadmin/img/05_Support/leiterplatten-daten/leiterplatte_eagle_logo_big.png"
+                                    alt="EAGLE" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/altium.com" alt="Altium"
                                     class="logo-img mb-3 object-contain"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%231b6ac6%22 font-weight=%22bold%22>Altium</text></svg>'">
                             </div>
+
                             <!-- PCB Design -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-yellow-600 mb-3">EAGLE</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.multi-circuit-boards.eu/fileadmin/img/05_Support/leiterplatten-daten/leiterplatte_eagle_logo_big.png"
+                                    alt="EAGLE" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/altium.com" alt="Altium"
                                     class="logo-img mb-3 object-contain"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%231b6ac6%22 font-weight=%22bold%22>Altium</text></svg>'">
                             </div>
+
                             <!-- PCB Design -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-yellow-600 mb-3">EAGLE</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.multi-circuit-boards.eu/fileadmin/img/05_Support/leiterplatten-daten/leiterplatte_eagle_logo_big.png"
+                                    alt="EAGLE" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/altium.com" alt="Altium"
                                     class="logo-img mb-3 object-contain"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%231b6ac6%22 font-weight=%22bold%22>Altium</text></svg>'">
@@ -1303,134 +1213,132 @@
                 </div>
 
                 <!-- Fire Detection Content -->
-                <div id="content-fire" class="hidden mt-8">
+                <div id="content-fire" class="hidden mt-2">
                     <div class="relative overflow-hidden py-8">
                         <div class="carousel-container flex gap-6">
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-xl font-bold text-red-600 mb-3">Phoenix V2</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMKtf346L2Su8hbmiVTHDEBKOfRoIRwtxfUg&s"
+                                    alt="Marinelec" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-orange-600 mb-3">B-I Industrial</span>
 
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-yellow-700 mb-3">JB QB-5Si</span>
 
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-xl font-bold text-red-600 mb-3">Phoenix V2</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMKtf346L2Su8hbmiVTHDEBKOfRoIRwtxfUg&s"
+                                    alt="Marinelec" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-orange-600 mb-3">B-I Industrial</span>
-
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-yellow-700 mb-3">JB QB-5Si</span>
-
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-xl font-bold text-red-600 mb-3">Phoenix V2</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMKtf346L2Su8hbmiVTHDEBKOfRoIRwtxfUg&s"
+                                    alt="Marinelec" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-orange-600 mb-3">B-I Industrial</span>
-
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-yellow-700 mb-3">JB QB-5Si</span>
-
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- HMI & SCADA Content -->
-                <div id="content-hmi" class="hidden mt-8">
+                <div id="content-hmi" class="hidden mt-2">
                     <div class="relative overflow-hidden py-8">
                         <div class="carousel-container flex gap-6">
                             <!-- LabVIEW -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/ni.com" alt="LabVIEW"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 80%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 fill=%22%23ffb500%22 font-weight=%22bold%22>LabVIEW</text></svg>'">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://softwareasli.com/wp-content/uploads/2024/05/ni_labview_logo_icon_169920.png"
+                                    alt="LabVIEW" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- WinCC -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="logo-text font-bold text-cyan-600 mb-3">WinCC</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://csi-industrie.fr/wp-content/uploads/2020/10/logos_0000_WINCC-LOGO.png"
+                                    alt="WinCC" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- NetBeans -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Apache_NetBeans_Logo.svg/250px-Apache_NetBeans_Logo.svg.png"
-                                    alt="NetBeans" class="logo-img mb-3 object-contain">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://info.payara.fish/hubfs/Dp3nCCdXgAEIMxM.png" alt="NetBeans"
+                                    class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- Vijeo Designer -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="logo-text font-bold text-green-600 mb-3 text-center">Vijeo Designer</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex flex-col items-center justify-center">
+                                <img src="https://softwareasli.com/wp-content/uploads/2024/06/images-11.jpg"
+                                    alt="Vijeo Designer" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- Weintek -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://w1.weintek.com/Images/logo.png" alt="Weintek"
                                     class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- LabVIEW -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://logo.clearbit.com/ni.com" alt="LabVIEW"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 80%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 fill=%22%23ffb500%22 font-weight=%22bold%22>LabVIEW</text></svg>'">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://softwareasli.com/wp-content/uploads/2024/05/ni_labview_logo_icon_169920.png"
+                                    alt="LabVIEW" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- WinCC -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="logo-text font-bold text-cyan-600 mb-3">WinCC</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://csi-industrie.fr/wp-content/uploads/2020/10/logos_0000_WINCC-LOGO.png"
+                                    alt="WinCC" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- NetBeans -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Apache_NetBeans_Logo.svg/250px-Apache_NetBeans_Logo.svg.png"
-                                    alt="NetBeans" class="logo-img mb-3 object-contain">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://info.payara.fish/hubfs/Dp3nCCdXgAEIMxM.png" alt="NetBeans"
+                                    class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- Vijeo Designer -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="logo-text font-bold text-green-600 mb-3 text-center">Vijeo Designer</span>
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex flex-col items-center justify-center">
+                                <img src="https://softwareasli.com/wp-content/uploads/2024/06/images-11.jpg"
+                                    alt="Vijeo Designer" class="logo-img mb-3 object-contain">
                             </div>
 
                             <!-- Weintek -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://w1.weintek.com/Images/logo.png" alt="Weintek"
                                     class="logo-img mb-3 object-contain">
                             </div>
@@ -1439,45 +1347,43 @@
                 </div>
 
                 <!-- PLC Systems Content -->
-                <div id="content-plc" class="grid mt-8">
+                <div id="content-plc" class="grid mt-82">
                     <div class="relative overflow-hidden py-8">
                         <div class="carousel-container flex gap-6">
                             <!-- PLC Systems -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/330px-Siemens_AG_logo.svg.png"
                                     alt="Siemens PLC" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Schneider_Electric_2007.svg/250px-Schneider_Electric_2007.svg.png"
                                     alt="Schneider PLC" class="logo-img mb-3 object-contain">
 
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/wago.com" alt="Wago"
-                                    class="logo-img mb-3 object-contain"
-                                    onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%2300a651%22 font-weight=%22bold%22>WAGO</text></svg>'">
-
+                                    class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mitsubishi_Electric_logo.svg/250px-Mitsubishi_Electric_logo.svg.png"
                                     alt="Mitsubishi PLC" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-blue-600 mb-3">CROUZET</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.mouser.co.id/images/suppliers/logos/crouzet.png" alt="CROUZET"
+                                    class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/omron.com" alt="Omron"
                                     class="logo-img mb-3 object-contain"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%230066b2%22 font-weight=%22bold%22>OMRON</text></svg>'">
@@ -1485,20 +1391,20 @@
 
                             <!-- PLC Systems -->
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Siemens_AG_logo.svg/330px-Siemens_AG_logo.svg.png"
                                     alt="Siemens PLC" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Schneider_Electric_2007.svg/250px-Schneider_Electric_2007.svg.png"
                                     alt="Schneider PLC" class="logo-img mb-3 object-contain">
 
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/wago.com" alt="Wago"
                                     class="logo-img mb-3 object-contain"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%2300a651%22 font-weight=%22bold%22>WAGO</text></svg>'">
@@ -1506,19 +1412,19 @@
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mitsubishi_Electric_logo.svg/250px-Mitsubishi_Electric_logo.svg.png"
                                     alt="Mitsubishi PLC" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
-                                <span class="text-2xl font-bold text-blue-600 mb-3">CROUZET</span>
-
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://www.mouser.co.id/images/suppliers/logos/crouzet.png" alt="CROUZET"
+                                    class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center">
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <img src="https://logo.clearbit.com/omron.com" alt="Omron"
                                     class="logo-img mb-3 object-contain"
                                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%230066b2%22 font-weight=%22bold%22>OMRON</text></svg>'">
@@ -1538,7 +1444,13 @@
                     <b>Technical & client-focused</b><br>
                     From concept to commissioning — your trusted automation partner.
                 </p>
-                
+                <div class="h-96 relative" id="imageContainer">
+                    <div class="image-container rounded-2xl shadow-2xl w-full h-full">
+                        <div class="reveal-overlay" id="revealOverlay"></div>
+                        <img src="asset/vm_workflow.jpg" class="image-content w-full h-full object-cover rounded-2xl"
+                            id="imageContent" alt="Automation Workflow">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1913,6 +1825,25 @@
                 window.open(`https://wa.me/${phoneNumber}?text=${waMessage}`, '_blank');
             });
         });
+        const imageContainer = document.getElementById('imageContainer');
+        const revealOverlay = document.getElementById('revealOverlay');
+        const imageContent = document.getElementById('imageContent');
+
+        let hasAnimated = false;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    revealOverlay.classList.add('animate');
+                    imageContent.classList.add('animate');
+                    hasAnimated = true;
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        observer.observe(imageContainer);
     </script>
 </body>
 
