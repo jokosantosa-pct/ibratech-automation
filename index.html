@@ -7,495 +7,9 @@
     <title>IBRATECH AUTOMATION - Advanced Electrical Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contents/ib_styles.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #0c48ca 0%, #1337ab 100%);
-        }
-
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .sidebar-transition {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-fade {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stat-counter {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        /* .video-container img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        } */
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(4, 55, 164, 0.3) 0%, rgba(4, 29, 111, 0.3) 100%);
-        }
-
-        .service-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card img {
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover img {
-            transform: scale(1.1);
-        }
-
-        /* BEFORE/AFTER ANIMATION */
-        .before-after-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .before-after-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .before-after-container .after-image {
-            opacity: 0;
-        }
-
-        .before-after-container.show-after .after-image {
-            opacity: 1;
-        }
-
-        .before-after-container.show-after .before-image {
-            opacity: 0;
-        }
-
-        .image-label {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.75);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            z-index: 10;
-            backdrop-filter: blur(4px);
-        }
-
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-        }
-
-        .project-card img {
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            padding: 2rem;
-            transform: translateY(10%);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-overlay {
-            transform: translateY(0);
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(180deg, #25D366 0%, #128C7E 100%);
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: transform .18s ease, box-shadow .18s ease;
-            z-index: 9999;
-        }
-
-        /* Hover/active */
-        .whatsapp-float:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-        }
-
-        /* SVG icon sizing */
-        .whatsapp-float svg {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-
-        /* Optional small label */
-        .whatsapp-badge {
-            position: absolute;
-            right: 70px;
-            bottom: 16px;
-            background: #ffffff;
-            color: #128C7E;
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateX(6px);
-            transition: opacity .18s ease, transform .18s ease;
-            pointer-events: none;
-            font-size: 13px;
-        }
-
-        /* show badge on hover (desktop) */
-        .whatsapp-float:hover+.whatsapp-badge,
-        /* in case DOM order differs */
-        .whatsapp-float:hover .whatsapp-badge {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Small pulse animation to attract attention */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
-            }
-
-            70% {
-                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        .whatsapp-float::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            left: 0;
-            top: 0;
-            animation: pulse 3.6s infinite;
-        }
-
-        /* Responsive tweak: hide text badge on small screens */
-        @media (max-width: 480px) {
-            .whatsapp-badge {
-                display: none;
-            }
-
-            .whatsapp-float {
-                right: 16px;
-                bottom: 16px;
-                width: 56px;
-                height: 56px;
-            }
-        }
-
-        .tab-container {
-            scroll-behavior: smooth;
-        }
-
-
-        .carousel-container {
-            display: flex;
-            animation: scroll 10s linear infinite;
-        }
-
-        @media (min-width: 640px) {
-            .carousel-container {
-                display: flex;
-                animation: scroll 15s linear infinite;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .carousel-container {
-                display: flex;
-                animation: scroll 20s linear infinite;
-            }
-        }
-
-        @media (min-width: 1024) {
-            .carousel-container {
-                display: flex;
-                animation: scroll 25s linear infinite;
-            }
-        }
-
-        .carousel-container:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .logo-card {
-            min-width: 250px;
-            height: 180px;
-        }
-
-        @media (max-width: 768px) {
-            .logo-card {
-                min-width: 200px;
-                height: 150px;
-            }
-        }
-
-        .logo-img {
-            width: 100%;
-            max-width: 180px;
-            height: auto;
-            min-height: 80px;
-        }
-
-        .logo-text {
-            font-size: 2rem;
-        }
-
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        }
-
-        .diagonal-panels {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-        }
-
-        .panel {
-            position: relative;
-            flex: 1;
-            height: 100%;
-            overflow: hidden;
-            transform: translateY(-100%);
-            animation: slideDown 1s ease-out forwards;
-        }
-
-        .panel:nth-child(1) {
-            animation-delay: 0.1s;
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-            margin-left: -10%;
-            z-index: -100;
-        }
-
-        .panel:nth-child(2) {
-            animation-delay: 0.3s;
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
-            margin-left: -15%;
-            z-index: -102;
-        }
-
-        .panel:nth-child(3) {
-            animation-delay: 0.5s;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
-            margin-left: -15%;
-            z-index: -103;
-        }
-
-        @keyframes slideDown {
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        .panel-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            filter: brightness(0.7);
-        }
-
-        @media (max-width: 768px) {
-            .content h1 {
-                font-size: 2.5rem;
-            }
-
-            .content p {
-                font-size: 1.1rem;
-            }
-
-            .panel:nth-child(1) {
-                clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
-            }
-
-            .panel:nth-child(2) {
-                clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
-            }
-
-            .panel:nth-child(3) {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .content h1 {
-                font-size: 2rem;
-            }
-
-            .content p {
-                font-size: 1rem;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                text-align: center;
-                width: 100%;
-            }
-        }
-
-        .image-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .reveal-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                    transparent 0%,
-                    rgba(255, 255, 255, 0.7) 50%,
-                    rgba(255, 255, 255, 0.9) 100%);
-            transform: translateX(-100%);
-            z-index: 10;
-        }
-
-        .reveal-overlay.animate {
-            animation: slideReveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-        }
-
-        .image-content {
-            opacity: 0;
-            transform: scale(1.1);
-        }
-
-        .image-content.animate {
-            animation: fadeInScale 1.5s ease-out 0.3s forwards;
-        }
-
-        @keyframes slideReveal {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        @keyframes fadeInScale {
-            0% {
-                opacity: 0;
-                transform: scale(1.1);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
     </style>
 
 </head>
@@ -540,6 +54,12 @@
                 class="flex items-center px-4 py-3 text-white bg-red-600 hover:bg-red-500 rounded-lg mb-2 transition">
                 <i class="fas fa-phone w-5"></i>
                 <span class="ml-3">24/7 Response</span>
+            </a>
+            <hr>
+            <a href="blog/"
+                class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg mb-2 transition">
+                <i class="fas fa-blog w-5"></i>
+                <span class="ml-3">Blog</span>
             </a>
         </nav>
 
@@ -609,18 +129,18 @@
                 <div class="video-overlay"></div>
             </div>
 
-            <div class="absolute inset-0 flex items-center justify-center text-white px-6">
+            <div class="absolute inset-0 flex items-center justify-center text-white px-2">
                 <div class="max-w-8xl mx-auto w-full">
-                    <div class="grid lg:grid-cols-2 gap-12 items-center md:pl-20">
-                        <div class="section-fade md:pl-20">
-                            <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                                Improving Your Systems, Solving Your Problems
+                    <div class="grid gap-8 items-center">
+                        <div class="section-fade">
+                            <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight text-center">
+                                Improving Your Systems,<br> Solving Your Problems
                             </h1>
-                            <p class="text-xl text-white mb-8 leading-relaxed">
+                            <p class="text-xl text-white mb-8 leading-relaxed text-center">
                                 Tailored complete design, installation, and maintenance services for automation and
                                 electrical systems.
                             </p>
-                            <div class="flex flex-wrap gap-3 mb-8">
+                            <div class="flex flex-wrap justify-center gap-3 mb-8">
                                 <span
                                     class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Safe</span>
                                 <span
@@ -630,7 +150,7 @@
                                 <span
                                     class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">Trusted</span>
                             </div>
-                            <div class="flex gap-4">
+                            <div class="flex justify-center gap-4">
                                 <a href="#services"
                                     class="px-2 md:px-4 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
                                     Our Services
@@ -1224,20 +744,8 @@
 
                             <div
                                 class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
-                                <span class="text-xl font-bold text-orange-600 mb-3">B-I Industrial</span>
-
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
-                                <span class="text-xl font-bold text-yellow-700 mb-3">JB QB-5Si</span>
-
-                            </div>
-
-                            <div
-                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMKtf346L2Su8hbmiVTHDEBKOfRoIRwtxfUg&s"
-                                    alt="Marinelec" class="logo-img mb-3 object-contain">
+                                <img src="https://qaadieu2usmediastorage.blob.core.windows.net/userfiles/Apollo_Corporate_Logo_705x450.png"
+                                    alt="Apollow" class="logo-img mb-3 object-contain">
                             </div>
 
                             <div
@@ -1256,6 +764,32 @@
                                     alt="Marinelec" class="logo-img mb-3 object-contain">
                             </div>
 
+                            <div
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://qaadieu2usmediastorage.blob.core.windows.net/userfiles/Apollo_Corporate_Logo_705x450.png"
+                                    alt="Apollow" class="logo-img mb-3 object-contain">
+                            </div>
+
+                            <div
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <span class="text-xl font-bold text-orange-600 mb-3">B-I Industrial</span>
+                            </div>
+
+                            <div
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <span class="text-xl font-bold text-yellow-700 mb-3">JB QB-5Si</span>
+                            </div>
+
+                            <div
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMKtf346L2Su8hbmiVTHDEBKOfRoIRwtxfUg&s"
+                                    alt="Marinelec" class="logo-img mb-3 object-contain">
+                            </div>
+                            <div
+                                class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
+                                <img src="https://qaadieu2usmediastorage.blob.core.windows.net/userfiles/Apollo_Corporate_Logo_705x450.png"
+                                    alt="Apollow" class="logo-img mb-3 object-contain">
+                            </div>
                             <div
                                 class="logo-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 flex flex-col items-center justify-center">
                                 <span class="text-xl font-bold text-orange-600 mb-3">B-I Industrial</span>
@@ -1444,10 +978,10 @@
                     <b>Technical & client-focused</b><br>
                     From concept to commissioning — your trusted automation partner.
                 </p>
-                <div class="h-96 relative" id="imageContainer">
-                    <div class="image-container rounded-2xl shadow-2xl w-full h-full">
+                <div class="h-96 relative overflow-x-auto md:overflow-hidden rounded-2xl" id="imageContainer">
+                    <div class="image-container shadow-2xl min-w-[896px] md:min-w-0 md:w-full h-full">
                         <div class="reveal-overlay" id="revealOverlay"></div>
-                        <img src="asset/vm_workflow.jpg" class="image-content w-full h-full object-cover rounded-2xl"
+                        <img src="asset/vm_workflow.jpg" class="image-content  h-full w-auto object-cover rounded-2xl"
                             id="imageContent" alt="Automation Workflow">
                     </div>
                 </div>
@@ -1462,9 +996,10 @@
                     <p class="text-xl text-gray-600">Get in touch with our expert team</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12 mb-12">
-                    <!-- Indonesia Office 
-                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <!-- Responsive Grid: 3 cols on large, 2 cols on medium, 1 col on small -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <!-- Indonesia Office -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">PT Ibra Tech Automation</h3>
                         <p class="text-sm text-blue-600 font-semibold mb-6">INDONESIA OFFICE</p>
 
@@ -1503,14 +1038,14 @@
                                 <div>
                                     <p class="font-semibold text-gray-800 mb-1">Email</p>
                                     <a href="mailto:contact@ibratech-automation.com"
-                                        class="text-blue-600 hover:underline">contact@ibratech-automation.com</a>
+                                        class="text-blue-600 hover:underline break-all">contact@ibratech-automation.com</a>
                                 </div>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
 
                     <!-- UK Office -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Ibratech Automation LLP</h3>
                         <p class="text-sm text-blue-600 font-semibold mb-6">UNITED KINGDOM OFFICE</p>
 
@@ -1549,14 +1084,15 @@
                                 <div>
                                     <p class="font-semibold text-gray-800 mb-1">Email</p>
                                     <a href="mailto:contact@ibratech-automation.com"
-                                        class="text-blue-600 hover:underline">contact@ibratech-automation.com</a>
+                                        class="text-blue-600 hover:underline break-all">contact@ibratech-automation.com</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Dubai Office -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <!-- Dubai Office - Will center itself on medium screens -->
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Ibratech Automation FZ LLC</h3>
                         <p class="text-sm text-blue-600 font-semibold mb-6">DUBAI OFFICE</p>
 
@@ -1583,7 +1119,7 @@
                                 <div>
                                     <p class="font-semibold text-gray-800 mb-1">Email</p>
                                     <a href="mailto:contact@ibratech-automation.com"
-                                        class="text-blue-600 hover:underline">contact@ibratech-automation.com</a>
+                                        class="text-blue-600 hover:underline break-all">contact@ibratech-automation.com</a>
                                 </div>
                             </div>
 
@@ -1654,197 +1190,7 @@
         </a>
     </div>
 
-    <script>
-        let sidebarOpen = false;
-
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            const mainContent = document.getElementById('mainContent');
-
-            sidebarOpen = !sidebarOpen;
-
-            if (sidebarOpen) {
-                sidebar.classList.remove('-translate-x-full');
-                if (window.innerWidth >= 1024) {
-                    mainContent.classList.add('lg:ml-64');
-                } else {
-                    overlay.classList.remove('hidden');
-                }
-            } else {
-                sidebar.classList.add('-translate-x-full');
-                overlay.classList.add('hidden');
-                mainContent.classList.remove('lg:ml-64');
-            }
-        }
-
-        // BEFORE/AFTER ANIMATION
-        function initBeforeAfterAnimations() {
-            const containers = document.querySelectorAll('.before-after-container');
-            containers.forEach(container => {
-                const delay = parseInt(container.dataset.delay) || 3000;
-                const label = container.querySelector('.image-label');
-                setInterval(() => {
-                    container.classList.toggle('show-after');
-                    if (container.classList.contains('show-after')) {
-                        label.textContent = 'AFTER';
-                    } else {
-                        label.textContent = 'BEFORE';
-                    }
-                }, delay);
-            });
-        }
-
-        window.addEventListener('load', function () {
-            if (window.innerWidth >= 1024) toggleSidebar();
-            initBeforeAfterAnimations();
-        });
-
-
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            const mainContent = document.getElementById('mainContent');
-
-            if (window.innerWidth >= 1024) {
-                if (!sidebarOpen) {
-                    sidebar.classList.remove('-translate-x-full');
-                    mainContent.classList.add('lg:ml-64');
-                    sidebarOpen = true;
-                }
-                overlay.classList.add('hidden');
-            } else {
-                if (sidebarOpen) {
-                    sidebar.classList.add('-translate-x-full');
-                    mainContent.classList.remove('lg:ml-64');
-                    sidebarOpen = false;
-                }
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            const mainContent = document.getElementById('mainContent');
-
-            if (window.innerWidth >= 1024) {
-                if (!sidebarOpen) {
-                    sidebar.classList.remove('-translate-x-full');
-                    mainContent.classList.add('lg:ml-64');
-                    sidebarOpen = true;
-                }
-                overlay.classList.add('hidden');
-            } else {
-                if (sidebarOpen) {
-                    sidebar.classList.add('-translate-x-full');
-                    mainContent.classList.remove('lg:ml-64');
-                    sidebarOpen = false;
-                }
-            }
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
-                    // Close sidebar on mobile after clicking
-                    if (window.innerWidth < 1024 && sidebarOpen) {
-                        toggleSidebar();
-                    }
-                }
-            });
-        });
-
-        // Tab switching function
-        function switchTab(tabName) {
-            // Hide all content
-            const contents = ['vsd', 'hmi', 'plc', 'electrical', 'communication', 'pcb', 'fire'];
-            contents.forEach(name => {
-                const content = document.getElementById('content-' + name);
-                const tab = document.getElementById('tab-' + name);
-
-                if (content) content.classList.add('hidden');
-                if (tab) {
-                    tab.classList.remove('gradient-bg', 'text-white', 'shadow-md');
-                    tab.classList.add('bg-gray-100', 'text-gray-700');
-                }
-            });
-
-            // Show selected content
-            const selectedContent = document.getElementById('content-' + tabName);
-            const selectedTab = document.getElementById('tab-' + tabName);
-
-            if (selectedContent) {
-                selectedContent.classList.remove('hidden');
-                selectedContent.classList.add('grid');
-            }
-            if (selectedTab) {
-                selectedTab.classList.remove('bg-gray-100', 'text-gray-700');
-                selectedTab.classList.add('gradient-bg', 'text-white', 'shadow-md');
-            }
-        }
-
-        // Scroll tabs left/right
-        function scrollTabs(direction) {
-            const container = document.getElementById('tabContainer');
-            const scrollAmount = 200;
-
-            if (direction === 'left') {
-                container.scrollLeft -= scrollAmount;
-            } else {
-                container.scrollLeft += scrollAmount;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('contactForm');
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                // Format pesan WhatsApp
-                const waMessage = `*New Contact Form Submission*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Message:* ${encodeURIComponent(message)}`;
-
-                // Nomor WhatsApp tujuan (ganti dengan nomor yang diinginkan)
-                const phoneNumber = '628117014004'; // Nomor Indonesia tanpa tanda +
-
-                // Buka WhatsApp
-                window.open(`https://wa.me/${phoneNumber}?text=${waMessage}`, '_blank');
-            });
-        });
-        const imageContainer = document.getElementById('imageContainer');
-        const revealOverlay = document.getElementById('revealOverlay');
-        const imageContent = document.getElementById('imageContent');
-
-        let hasAnimated = false;
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    revealOverlay.classList.add('animate');
-                    imageContent.classList.add('animate');
-                    hasAnimated = true;
-                }
-            });
-        }, {
-            threshold: 0.3
-        });
-
-        observer.observe(imageContainer);
-    </script>
+    <script src="contents/ib_script.js"></script>
 </body>
 
 </html>
