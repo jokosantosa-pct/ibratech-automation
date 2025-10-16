@@ -23,7 +23,7 @@ requireLogin();
     <!-- Sidebar -->
     <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white shadow-2xl z-50 sidebar-transition -translate-x-full">
         <div class="p-6 border-b border-gray-100">
-            <img src="../asset/logo-ibratech.png" alt="IBRATECH" class="h-12 object-contain">
+            <img src="../asset/logo_ibratech.png" alt="IBRATECH" class="h-12 object-contain">
             <p class="text-sm text-gray-500 mt-2">Automation Solutions</p>
         </div>
 
