@@ -1,128 +1,185 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "Complete Guide to Implementing Schneider Electric PLC Systems",
-      "slug": "schneider-electric-plc-implementation-guide",
-      "category": "PLC Systems",
-      "date": "2025-10-10",
-      "author": "John Anderson",
-      "excerpt": "Learn the best practices for implementing Schneider Electric PLC systems to optimize your industrial processes. This comprehensive guide covers everything from planning to execution.",
-      "content": "Programmable Logic Controllers (PLCs) are the backbone of modern industrial automation. Schneider Electric offers robust solutions that can transform your manufacturing processes. This guide will walk you through the essential steps of implementation, from initial planning and requirements gathering to commissioning and ongoing maintenance. We'll explore hardware selection, programming best practices, and integration strategies that ensure your PLC system delivers optimal performance and reliability for years to come.",
-      "image": "gradient-blue",
-      "readTime": "8 min read",
-      "tags": ["PLC", "Automation", "Schneider Electric"]
-    },
-    {
-      "id": 2,
-      "title": "Efficient and Safe Electrical Panel Design Standards",
-      "slug": "electrical-panel-design-standards",
-      "category": "Electrical Design",
-      "date": "2025-10-08",
-      "author": "Sarah Mitchell",
-      "excerpt": "Improve your electrical system safety and efficiency with proper panel design that meets international standards. Discover key principles and common pitfalls to avoid.",
-      "content": "Electrical panel design is crucial for ensuring both safety and operational efficiency in industrial settings. Following international standards such as IEC and NEMA is not just about compliance—it's about creating systems that protect personnel, equipment, and operations. This article covers fundamental design principles including proper wire sizing, circuit protection, thermal management, and accessibility. We'll also discuss common mistakes that can lead to costly downtime or safety hazards, and provide practical solutions for creating panels that are both functional and maintainable.",
-      "image": "gradient-green",
-      "readTime": "6 min read",
-      "tags": ["Electrical", "Safety", "Design"]
-    },
-    {
-      "id": 3,
-      "title": "HVAC System Optimization for Modern Industrial Facilities",
-      "slug": "hvac-optimization-industrial-facilities",
-      "category": ["HVAC Solution", "Energy Efficiency"],
-      "date": "2025-10-05",
-      "author": "Michael Chen",
-      "excerpt": "Maximize energy efficiency and comfort with the right HVAC automation system for your industrial facility. Learn about smart controls and energy-saving strategies.",
-      "content": "Modern HVAC systems in industrial facilities require sophisticated automation to balance energy efficiency with operational requirements. Today's smart HVAC controls can significantly reduce energy consumption while maintaining optimal environmental conditions. This article explores the latest automation technologies, including variable frequency drives, demand-based ventilation, and intelligent zone control systems. We'll examine real-world case studies demonstrating how proper HVAC optimization can reduce operating costs by 30-40% while improving workplace comfort and air quality.",
-      "image": "gradient-red",
-      "imageType": "gradient",
-      "readTime": "7 min read",
-      "tags": ["HVAC", "Energy", "Automation"]
-    },
-    {
-      "id": 4,
-      "title": "Understanding Variable Speed Drives in Industrial Applications",
-      "slug": "variable-speed-drives-industrial-applications",
-      "category": ["VSD", "Energy Efficiency"],
-      "date": "2025-10-03",
-      "author": "David Kumar",
-      "excerpt": "Variable Speed Drives (VSDs) are essential for energy optimization. This article explores their applications, benefits, and selection criteria for various industrial scenarios.",
-      "content": "Variable Speed Drives have revolutionized motor control in industrial settings by allowing precise speed control and significant energy savings. Unlike traditional fixed-speed motors, VSDs adjust motor speed to match actual load requirements, potentially reducing energy consumption by 20-50%. This comprehensive guide covers VSD technology fundamentals, application selection criteria, sizing considerations, and installation best practices. We'll also discuss harmonic mitigation, power factor correction, and maintenance strategies to ensure long-term reliability and performance.",
-      "image": "gradient-purple",
-      "imageType": "gradient",
-      "readTime": "9 min read",
-      "tags": ["VSD", "Motors", "Energy Efficiency"]
-    },
-    {
-      "id": 5,
-      "title": "HMI and SCADA Integration Best Practices",
-      "slug": "hmi-scada-integration-best-practices",
-      "category": ["HMI & SCADA", "Automation"],
-      "date": "2025-10-01",
-      "author": "Emily Rodriguez",
-      "excerpt": "Seamless HMI and SCADA integration is vital for effective process monitoring and control. Learn the key strategies for successful implementation and maintenance.",
-      "content": "Human Machine Interface (HMI) and Supervisory Control and Data Acquisition (SCADA) systems form the nerve center of modern industrial automation. Successful integration requires careful planning, robust architecture design, and attention to cybersecurity. This article provides a roadmap for implementing HMI/SCADA systems that deliver real-time visibility, reliable control, and actionable insights. Topics include network architecture, data modeling, alarm management, historical data trending, and remote access security. We'll also cover scalability considerations and future-proofing strategies.",
-      "image": "gradient-orange",
-      "imageType": "gradient",
-      "readTime": "10 min read",
-      "tags": ["HMI", "SCADA", "Integration"]
-    },
-    {
-      "id": 6,
-      "title": "Fire Detection Systems: Latest Technologies and Compliance",
-      "slug": "fire-detection-systems-latest-technologies",
-      "category": ["Fire Detection", "Safety"],
-      "date": "2025-09-28",
-      "author": "Robert Johnson",
-      "excerpt": "Stay updated with the latest fire detection technologies and ensure compliance with international safety standards for industrial facilities.",
-      "content": "Fire detection and suppression systems are critical safety components in any industrial facility. Recent technological advances have made these systems more reliable and responsive than ever before. This article examines cutting-edge detection technologies including multi-sensor detectors, video smoke detection, and AI-powered flame detection. We'll review compliance requirements under NFPA, FM Global, and local fire codes, and discuss system design considerations for different industrial environments. Integration with building automation systems and emergency response protocols are also covered.",
-      "image": "gradient-red",
-      "imageType": "gradient",
-      "readTime": "7 min read",
-      "tags": ["Safety", "Fire Detection", "Compliance"]
-    },
-    {
-      "id": 7,
-      "title": "Industrial Communication Protocols: A Comprehensive Overview",
-      "slug": "industrial-communication-protocols-overview",
-      "category": ["Communication", "Networking"],
-      "date": "2025-09-25",
-      "author": "Lisa Wang",
-      "excerpt": "Understanding various industrial communication protocols is essential for building robust automation systems. Compare Modbus, Profibus, Ethernet/IP and more.",
-      "content": "The backbone of any industrial automation system lies in its communication infrastructure. Different protocols offer various advantages depending on your specific needs. This comprehensive overview compares popular protocols including Modbus RTU/TCP, Profibus, Profinet, EtherNet/IP, and OPC UA. We'll examine each protocol's strengths, limitations, typical applications, and interoperability considerations. The article also covers emerging trends like TSN (Time-Sensitive Networking) and the convergence of IT and OT networks. Practical guidance on protocol selection and troubleshooting common communication issues is included.",
-      "image": "gradient-indigo",
-      "imageType": "gradient",
-      "readTime": "11 min read",
-      "tags": ["Communication", "Protocols", "Networking"]
-    },
-    {
-      "id": 8,
-      "title": "PCB Design for Industrial Control Systems",
-      "slug": "pcb-design-industrial-control-systems",
-      "category": ["PCB Design", "Electronics"],
-      "date": "2025-09-22",
-      "author": "Thomas Brown",
-      "excerpt": "Learn the fundamentals of PCB design specifically for industrial control applications, including noise reduction, thermal management, and reliability considerations.",
-      "content": "Printed Circuit Board design for industrial environments requires special attention to durability, electromagnetic compatibility, and harsh operating conditions. This article covers essential design principles including proper grounding techniques, signal integrity, power distribution, and thermal management. We'll explore layout strategies for noise-sensitive analog circuits, high-speed digital signals, and power electronics. Special considerations for industrial environments such as vibration resistance, conformal coating, and wide temperature range operation are discussed. The guide includes practical tips for component selection and design validation.",
-      "image": "gradient-teal",
-      "imageType": "gradient",
-      "readTime": "8 min read",
-      "tags": ["PCB", "Electronics", "Design"]
-    },
-    {
-      "id": 9,
-      "title": "Predictive Maintenance Using IoT and AI in Manufacturing",
-      "slug": "predictive-maintenance-iot-ai-manufacturing",
-      "category": ["Industry 4.0", "IoT", "AI"],
-      "date": "2025-09-20",
-      "author": "Alexandra Green",
-      "excerpt": "Discover how IoT sensors and AI algorithms are transforming maintenance strategies, reducing downtime, and improving overall equipment effectiveness.",
-      "content": "The convergence of IoT and AI technologies has enabled a paradigm shift from reactive to predictive maintenance strategies in manufacturing. By continuously monitoring equipment health through sensors and analyzing patterns with machine learning algorithms, companies can predict failures before they occur. This article explores the implementation of predictive maintenance systems, from sensor selection and data acquisition to AI model development and integration with CMMS platforms. Real-world examples demonstrate ROI through reduced unplanned downtime, extended equipment life, and optimized maintenance scheduling. We'll also discuss change management and workforce training considerations.",
-      "image": "gradient-blue",
-      "imageType": "gradient",
-      "readTime": "9 min read",
-      "tags": ["IoT", "AI", "Maintenance"]
-    }
-  ]
+    "posts": [
+        {
+            "id": "1",
+            "title": "Complete Guide to Implementing Schneider Electric PLC Systems",
+            "slug": "complete-guide-to-implementing-schneider-electric-plc-systems",
+            "category": [
+                "PLC Systems"
+            ],
+            "date": "2025-10-10",
+            "author": "Joko Santosa",
+            "excerpt": "Learn the best practices for implementing Schneider Electric PLC systems to optimize your industrial processes. This comprehensive guide covers everything from planning to execution.",
+            "content": "<p><strong>Programmable Logic Controllers (PLCs)<\/strong> are the backbone of modern industrial automation. Schneider Electric offers robust solutions that can transform your manufacturing processes. This guide will walk you through the essential steps of implementation, from initial planning and requirements gathering to commissioning and ongoing maintenance. We'll explore hardware selection, programming best practices, and integration strategies that ensure your <em>PLC system<\/em> delivers optimal performance and reliability for years to come.<\/p>",
+            "image": "https:\/\/images.unsplash.com\/photo-1697665896542-5de862452972?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=580",
+            "imageType": "url",
+            "readTime": "8 min read",
+            "tags": [
+                "PLC",
+                "Automation",
+                "Schneider Electric"
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Efficient and Safe Electrical Panel Design Standards",
+            "slug": "efficient-and-safe-electrical-panel-design-standards",
+            "category": [
+                "Electrical Design"
+            ],
+            "date": "2025-10-08",
+            "author": "Joko Santosa",
+            "excerpt": "Improve your electrical system safety and efficiency with proper panel design that meets international standards. Discover key principles and common pitfalls to avoid.",
+            "content": "<p>Electrical panel design is crucial for ensuring both safety and operational efficiency in industrial settings. Following international standards such as IEC and <strong>NEMA<\/strong> is not just about compliance—it's about creating systems that protect personnel, equipment, and operations. This article covers fundamental design principles including proper wire sizing, circuit protection, thermal management, and accessibility. We'll also discuss common mistakes that can lead to costly downtime or safety hazards, and provide practical solutions for creating panels that are both functional and maintainable.<\/p>",
+            "image": "gradient-green",
+            "imageType": "gradient",
+            "readTime": "6 min read",
+            "tags": [
+                "Electrical",
+                "Safety",
+                "Design"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "HVAC System Optimization for Modern Industrial Facilities",
+            "slug": "hvac-optimization-industrial-facilities",
+            "category": [
+                "HVAC Solution",
+                "Energy Efficiency"
+            ],
+            "date": "2025-10-05",
+            "author": "Joko Santosa",
+            "excerpt": "Maximize energy efficiency and comfort with the right HVAC automation system for your industrial facility. Learn about smart controls and energy-saving strategies.",
+            "content": "Modern HVAC systems in industrial facilities require sophisticated automation to balance energy efficiency with operational requirements. Today's smart HVAC controls can significantly reduce energy consumption while maintaining optimal environmental conditions. This article explores the latest automation technologies, including variable frequency drives, demand-based ventilation, and intelligent zone control systems. We'll examine real-world case studies demonstrating how proper HVAC optimization can reduce operating costs by 30-40% while improving workplace comfort and air quality.",
+            "image": "gradient-red",
+            "readTime": "7 min read",
+            "tags": [
+                "HVAC",
+                "Energy",
+                "Automation"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Understanding Variable Speed Drives in Industrial Applications",
+            "slug": "variable-speed-drives-industrial-applications",
+            "category": [
+                "VSD",
+                "Energy Efficiency"
+            ],
+            "date": "2025-10-03",
+            "author": "Joko Santosa",
+            "excerpt": "Variable Speed Drives (VSDs) are essential for energy optimization. This article explores their applications, benefits, and selection criteria for various industrial scenarios.",
+            "content": "Variable Speed Drives have revolutionized motor control in industrial settings by allowing precise speed control and significant energy savings. Unlike traditional fixed-speed motors, VSDs adjust motor speed to match actual load requirements, potentially reducing energy consumption by 20-50%. This comprehensive guide covers VSD technology fundamentals, application selection criteria, sizing considerations, and installation best practices. We'll also discuss harmonic mitigation, power factor correction, and maintenance strategies to ensure long-term reliability and performance.",
+            "image": "gradient-purple",
+            "readTime": "9 min read",
+            "tags": [
+                "VSD",
+                "Motors",
+                "Energy Efficiency"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "HMI and SCADA Integration Best Practices",
+            "slug": "hmi-scada-integration-best-practices",
+            "category": [
+                "HMI & SCADA",
+                "Automation"
+            ],
+            "date": "2025-10-01",
+            "author": "Joko Santosa",
+            "excerpt": "Seamless HMI and SCADA integration is vital for effective process monitoring and control. Learn the key strategies for successful implementation and maintenance.",
+            "content": "Human Machine Interface (HMI) and Supervisory Control and Data Acquisition (SCADA) systems form the nerve center of modern industrial automation. Successful integration requires careful planning, robust architecture design, and attention to cybersecurity. This article provides a roadmap for implementing HMI\/SCADA systems that deliver real-time visibility, reliable control, and actionable insights. Topics include network architecture, data modeling, alarm management, historical data trending, and remote access security. We'll also cover scalability considerations and future-proofing strategies.",
+            "image": "gradient-orange",
+            "readTime": "10 min read",
+            "tags": [
+                "HMI",
+                "SCADA",
+                "Integration"
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Fire Detection Systems: Latest Technologies and Compliance",
+            "slug": "fire-detection-systems-latest-technologies",
+            "category": [
+                "Fire Detection",
+                "Safety"
+            ],
+            "date": "2025-09-28",
+            "author": "Joko Santosa",
+            "excerpt": "Stay updated with the latest fire detection technologies and ensure compliance with international safety standards for industrial facilities.",
+            "content": "Fire detection and suppression systems are critical safety components in any industrial facility. Recent technological advances have made these systems more reliable and responsive than ever before. This article examines cutting-edge detection technologies including multi-sensor detectors, video smoke detection, and AI-powered flame detection. We'll review compliance requirements under NFPA, FM Global, and local fire codes, and discuss system design considerations for different industrial environments. Integration with building automation systems and emergency response protocols are also covered.",
+            "image": "gradient-red",
+            "readTime": "7 min read",
+            "tags": [
+                "Safety",
+                "Fire Detection",
+                "Compliance"
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Industrial Communication Protocols: A Comprehensive Overview",
+            "slug": "industrial-communication-protocols-overview",
+            "category": [
+                "Communication",
+                "Networking"
+            ],
+            "date": "2025-09-25",
+            "author": "Joko Santosa",
+            "excerpt": "Understanding various industrial communication protocols is essential for building robust automation systems. Compare Modbus, Profibus, Ethernet\/IP and more.",
+            "content": "The backbone of any industrial automation system lies in its communication infrastructure. Different protocols offer various advantages depending on your specific needs. This comprehensive overview compares popular protocols including Modbus RTU\/TCP, Profibus, Profinet, EtherNet\/IP, and OPC UA. We'll examine each protocol's strengths, limitations, typical applications, and interoperability considerations. The article also covers emerging trends like TSN (Time-Sensitive Networking) and the convergence of IT and OT networks. Practical guidance on protocol selection and troubleshooting common communication issues is included.",
+            "image": "gradient-indigo",
+            "readTime": "11 min read",
+            "tags": [
+                "Communication",
+                "Protocols",
+                "Networking"
+            ]
+        },
+        {
+            "id": 8,
+            "title": "PCB Design for Industrial Control Systems",
+            "slug": "pcb-design-industrial-control-systems",
+            "category": [
+                "PCB Design",
+                "Electronics"
+            ],
+            "date": "2025-09-22",
+            "author": "Joko Santosa",
+            "excerpt": "Learn the fundamentals of PCB design specifically for industrial control applications, including noise reduction, thermal management, and reliability considerations.",
+            "content": "Printed Circuit Board design for industrial environments requires special attention to durability, electromagnetic compatibility, and harsh operating conditions. This article covers essential design principles including proper grounding techniques, signal integrity, power distribution, and thermal management. We'll explore layout strategies for noise-sensitive analog circuits, high-speed digital signals, and power electronics. Special considerations for industrial environments such as vibration resistance, conformal coating, and wide temperature range operation are discussed. The guide includes practical tips for component selection and design validation.",
+            "image": "gradient-teal",
+            "readTime": "8 min read",
+            "tags": [
+                "PCB",
+                "Electronics",
+                "Design"
+            ]
+        },
+        {
+            "id": 9,
+            "title": "Predictive Maintenance Using IoT and AI in Manufacturing",
+            "slug": "predictive-maintenance-iot-ai-manufacturing",
+            "category": [
+                "Industry 4.0",
+                "IoT",
+                "AI"
+            ],
+            "date": "2025-09-20",
+            "author": "Joko Santosa",
+            "excerpt": "Discover how IoT sensors and AI algorithms are transforming maintenance strategies, reducing downtime, and improving overall equipment effectiveness.",
+            "content": "The convergence of IoT and AI technologies has enabled a paradigm shift from reactive to predictive maintenance strategies in manufacturing. By continuously monitoring equipment health through sensors and analyzing patterns with machine learning algorithms, companies can predict failures before they occur. This article explores the implementation of predictive maintenance systems, from sensor selection and data acquisition to AI model development and integration with CMMS platforms. Real-world examples demonstrate ROI through reduced unplanned downtime, extended equipment life, and optimized maintenance scheduling. We'll also discuss change management and workforce training considerations.",
+            "image": "gradient-blue",
+            "readTime": "9 min read",
+            "tags": [
+                "IoT",
+                "AI",
+                "Maintenance"
+            ]
+        }
+    ]
 }

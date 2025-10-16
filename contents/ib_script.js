@@ -150,23 +150,24 @@ function scrollTabs(direction) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contactForm');
+    if(form != null) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+            // Format pesan WhatsApp
+            const waMessage = `*New Contact Form Submission*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Message:* ${encodeURIComponent(message)}`;
 
-        // Format pesan WhatsApp
-        const waMessage = `*New Contact Form Submission*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Message:* ${encodeURIComponent(message)}`;
+            // Nomor WhatsApp tujuan (ganti dengan nomor yang diinginkan)
+            const phoneNumber = '628117014004'; // Nomor Indonesia tanpa tanda +
 
-        // Nomor WhatsApp tujuan (ganti dengan nomor yang diinginkan)
-        const phoneNumber = '628117014004'; // Nomor Indonesia tanpa tanda +
-
-        // Buka WhatsApp
-        window.open(`https://wa.me/${phoneNumber}?text=${waMessage}`, '_blank');
-    });
+            // Buka WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${waMessage}`, '_blank');
+        });
+    }
 });
 const imageContainer = document.getElementById('imageContainer');
 const revealOverlay = document.getElementById('revealOverlay');
@@ -185,5 +186,6 @@ const observer = new IntersectionObserver((entries) => {
 }, {
     threshold: 0.3
 });
-
-observer.observe(imageContainer);
+if(imageContainer != null) {
+    observer.observe(imageContainer);
+}
